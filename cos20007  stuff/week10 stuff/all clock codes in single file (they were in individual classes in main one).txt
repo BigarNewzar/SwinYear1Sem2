@@ -1,0 +1,150 @@
+#pragma once
+#include <string>
+#include <iostream> 
+using namespace std;
+
+class Counter
+{	
+private:
+	int _count;
+	string _name;
+public:              
+    Counter(string name) {  
+        _name = name;
+        _count = 0;
+    }
+    void Increment()
+    {
+        _count++;
+
+    }
+    void Reset()
+    {
+        _count = 0;
+
+    }
+
+    
+    
+    string getName()
+    {
+            return _name;
+    }
+    string setName(int value)
+    {
+            _name = value;
+    }
+    
+
+        int getTicks()
+        {
+                return _count;
+        }
+
+        
+};
+
+#pragma once
+#include <string>
+#include <iostream> 
+#include "Counter.h"//to use the counter class objects here!
+#include <iomanip>
+
+#include <stdio.h>
+#include <sstream>
+#include <math.h>
+using namespace std;
+
+class Clock
+
+{
+private:
+    Counter _sec = Counter("sec");
+    Counter _min = Counter("min");
+    Counter _hr = Counter("hr");
+public:
+    Clock() 
+    {
+       _sec = Counter("sec");
+       _min = Counter("min");
+       _hr = Counter("hr");
+    }
+    void tick()
+    {
+
+        _sec.Increment();
+        if (_sec.getTicks() > 59)
+        {
+            _sec.Reset();
+            _min.Increment();
+
+        }
+
+        if (_min.getTicks() > 59)
+        {
+            _min.Reset();
+            _hr.Increment();
+
+        }
+
+        if (_hr.getTicks() > 23)
+        {
+            _hr.Reset();
+
+        }
+    }
+
+    string PrintTime()
+    {//must have string stream included! also a few more libraries mentioned above! Otherwise program goes crazy and doesnt recognise ":" or 0.2f thingy
+        //reference for setfill and string stream:
+    //https://stackoverflow.com/questions/30330148/how-to-display-multiple-leading-zeros-for-floating-point-values-in-c
+   // https://stackoverflow.com/questions/58695875/how-to-convert-seconds-to-hhmmss-millisecond-format-c
+        stringstream ss;
+        ss << std::setfill('0') << std::setw(2)<<("%0.2f", _hr.getTicks()) << ":" << std::setfill('0') <<  std::setw(2)<<("%0.2f", _min.getTicks()) << ":" << std::setfill('0') << std::setw(2) << ("%0.2f", _sec.getTicks())<<"\n";
+        
+        return ss.str();
+        
+    }
+
+    void reset()
+    {
+        _sec.Reset();
+        _min.Reset();
+        _hr.Reset();
+    }
+
+
+};
+
+// ProgramClock.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+#include <string>
+#include <iostream> 
+#include "Counter.h"//to use the counter class objects here!
+#include "Clock.h"
+#include <iomanip>
+#include <dos.h>//to use delay
+#include <conio.h> //for getch()
+
+#include <chrono>
+#include <thread>
+
+using namespace std;
+
+void main(string[])
+{   
+
+    Clock myClock;
+    for (int i = 0; i < 24 * 60 * 60;i++)
+    {   
+
+        myClock.tick();
+        cout<< myClock.PrintTime();
+        std::this_thread::sleep_for(std::chrono::seconds(1));// using chrono and thread to get the delay
+        //reference:https://stackoverflow.com/questions/46230710/how-to-add-a-delay-to-code-in-c
+        
+                                                             
+        //delay(1000); //for some reason this delay wasnt working, maybe it wasnt finding dos.h for some reason?
+    }
+    
+}
