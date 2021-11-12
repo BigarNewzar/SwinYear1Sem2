@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "SwinAdventureGUI/1.0.0": {
+        "dependencies": {
+          "Swin-Adventure": "1.0.0.0"
+        },
+        "runtime": {
+          "SwinAdventureGUI.dll": {}
+        }
+      },
+      "Swin-Adventure/1.0.0.0": {
+        "runtime": {
+          "Swin-Adventure.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SwinAdventureGUI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Swin-Adventure/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
