@@ -1,0 +1,171 @@
+## Program cs
+
+using System;
+using SplashKitSDK;
+using Desktop;
+
+public class Program
+{
+    public static void Main()
+    {
+        new Window("Test", 800, 600);
+
+        var inputManager = new InputManager();
+        var player = new Player();
+        var uiControls = new UIControls();
+
+        inputManager.Add(player);
+        inputManager.Add(uiControls);
+
+        do
+        {
+            SplashKit.ProcessEvents();
+
+            // Key Classes:
+            // - Player
+            // - UIControls
+            // - InputManager
+            // - IKeyListener  -  InputListeners/Subscribers/Observers (listening for an event..)
+
+            // Jump when we press Space (Player Controls)
+            // Pause when we press Escape (UI Controls)
+
+            inputManager.CheckInput();
+
+            SplashKit.ClearScreen();
+
+            SplashKit.DrawText("ASOKDJSAOD", Color.Black, 100, 100);
+
+
+            SplashKit.RefreshScreen();
+        } while (!SplashKit.WindowCloseRequested("Test"));
+    }
+}
+
+## Input Manager cs
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using SplashKitSDK;
+
+namespace Desktop
+{
+    // Manages KeyListeners
+    public class InputManager
+    {
+        private List<IKeyListener> observers;
+        private List<KeyCode> keys;
+
+        public InputManager()
+        {
+            observers = new List<IKeyListener>();
+            keys = new List<KeyCode>
+            {
+                KeyCode.SpaceKey,
+                KeyCode.EscapeKey,
+                KeyCode.LeftAltKey,
+                KeyCode.KeypadEnter
+            };
+        }
+
+        public void Add(IKeyListener observer)
+            => observers.Add(observer);
+
+        public void Remove(IKeyListener observer)
+            => observers.Add(observer);
+
+        // A little bit like ProcessEvents..
+        public void CheckInput()
+        {            
+            foreach (KeyCode key in keys)
+            {
+                if (SplashKit.KeyTyped(key))
+                    NotifyObservers(key);
+            }
+        }
+
+        private void NotifyObservers(KeyCode keyCode)
+        {
+            foreach (IKeyListener observer in observers)
+                observer.OnKeyTyped(keyCode);
+        }
+    }
+}
+
+## Key Listener cs 
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using SplashKitSDK;
+
+namespace Desktop
+{
+    public interface IKeyListener
+    {
+        void OnKeyTyped(KeyCode keyCode);
+    }
+}
+
+## Player cs
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using SplashKitSDK;
+
+namespace Desktop
+{
+    public class Player : IKeyListener
+    {
+        public void OnKeyTyped(KeyCode keyCode)
+        {
+            if (keyCode == KeyCode.SpaceKey)
+            {
+                Jump();
+            }
+        }
+
+        public void Jump()
+        {
+            Console.WriteLine("Jumping!");
+        }
+    }
+}
+
+## UI Controls cs
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using SplashKitSDK;
+
+namespace Desktop
+{
+    public class UIControls : IKeyListener
+    {
+        public void OnKeyTyped(KeyCode keyCode)
+        {
+            if (keyCode == KeyCode.EscapeKey)
+            {
+                Pause();
+            }
+        }
+
+        public void Pause()
+        {
+            Console.WriteLine("Pausing!");
+        }
+    }
+}
+
+

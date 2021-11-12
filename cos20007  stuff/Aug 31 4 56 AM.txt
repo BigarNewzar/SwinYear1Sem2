@@ -1,0 +1,177 @@
+######### Program.cs
+#########
+#########
+#########
+#########
+#########
+
+using System;
+using System.Collections.Generic;
+using SplashKitSDK;
+
+namespace Desktop
+{
+    public class Program
+    {
+        public static void Main()
+        {
+            new Window("Test", 800, 600);
+
+            Shape s = new MyCircle { x = 100, y = 100, radius = 20 };
+            Shape s2 = new MyRectangle {x = 500, y = 500, width = 50, height = 100 };
+
+            List<Shape> shapes = new List<Shape>();
+
+            shapes.Add(s);
+            shapes.Add(s2);
+
+            // Shape Label
+            // Draws a string next to a Shape
+            var label = new ShapeLabel("LABEL!!", s);
+
+            IDrawable d1 = new MyCircle();
+            IDrawable d2 = new MyRectangle();
+            IDrawable d3 = new ShapeLabel("EXTRA LABEL", s);
+
+            List<IDrawable> drawables = new List<IDrawable>();
+
+            drawables.Add(d1);
+            drawables.Add(d2);
+            drawables.Add(d3);
+            drawables.Add(s);
+            drawables.Add(s2);
+
+            // Interface - IDrawable
+
+            do
+            {
+                SplashKit.ProcessEvents();
+
+                SplashKit.ClearScreen();
+
+                //s.Draw();
+                //s2.Draw();
+
+                //foreach (Shape shape in shapes)
+                //    shape.Draw();
+
+                //label.Draw();
+
+                foreach (IDrawable d in drawables)
+                    d.Draw();
+
+                SplashKit.RefreshScreen();
+            } while (!SplashKit.WindowCloseRequested("Test"));
+        }
+    }
+}
+
+######### Shape.cs
+#########
+#########
+#########
+#########
+#########
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using SplashKitSDK;
+
+namespace Desktop
+{
+    public abstract class Shape : IDrawable
+    {
+        public int x;
+        public int y;
+
+        public abstract bool IsAt(Point2D pt);
+        public abstract void Draw();
+    }
+
+    public class MyRectangle : Shape
+    {
+        public int width;
+        public int height;
+
+        public override bool IsAt(Point2D pt) => true;
+
+        public override void Draw()
+        {
+            SplashKit.FillRectangle(Color.Blue, x, y, width, height);
+        }
+    }
+
+    public class MyCircle : Shape
+    {
+        public int radius;
+
+        public override bool IsAt(Point2D pt) => true;
+
+        public override void Draw()
+        {
+            SplashKit.FillCircle(Color.Blue, x, y, radius);
+        }
+    }
+}
+
+######### ShapeLabel.cs
+#########
+#########
+#########
+#########
+#########
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using SplashKitSDK;
+
+namespace Desktop
+{
+    // Implement an interface
+    public class ShapeLabel : IDrawable
+    {
+        public string label;
+        public Shape shape;
+
+        public ShapeLabel(string label, Shape shape)
+        {
+            this.label = label;
+            this.shape = shape;
+        }
+
+        public void Draw()
+        {
+            SplashKit.DrawText(label, Color.Red, shape.x, shape.y);
+        }
+    }
+}
+
+######### IDrawable.cs
+#########
+#########
+#########
+#########
+#########
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Desktop
+{
+    public interface IDrawable
+    {
+        void Draw();
+    }
+}
+
+
+

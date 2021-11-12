@@ -1,0 +1,286 @@
+### Program CS
+
+using System;
+using SplashKitSDK;
+using Desktop;
+
+public class Program
+{
+    public static void Main()
+    {
+        new Window("Test", 800, 600);
+
+        // 4.1P - Drawing Class with different kinds of Shapes
+        // Drawing -> some kind of Shape Manager..
+        // Shape -> base class
+        // Circle/Rectangle/Line -> child classes
+
+        // State Pattern
+        // StateManager
+        // State -> base class
+        // Welcome/Gameplay/Victory -> child classes
+
+        var stateManager = new StateManager();        
+        stateManager.AddState<WelcomeState>();
+        stateManager.AddState<GameplayState>();
+        stateManager.AddState<VictoryState>();
+
+        stateManager.SetCurrentState<WelcomeState>();
+
+        do
+        {
+            // Game Loop
+            // Handle Input
+            // Update 
+            // Draw 
+            
+
+            SplashKit.ProcessEvents();
+
+            // Update goes here....
+            stateManager.HandleInput();
+            stateManager.Update();
+
+            SplashKit.ClearScreen();
+
+            stateManager.Draw();
+
+            SplashKit.RefreshScreen();
+        } while (!SplashKit.WindowCloseRequested("Test"));
+    }
+}
+
+## StateManager cs
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Reflection;
+
+namespace Desktop
+{
+    public class StateManager
+    {
+        private Dictionary<Type, GameState> states;
+        private GameState currentState; // null for now...
+
+        public StateManager()
+        {
+            states = new Dictionary<Type, GameState>();
+        }
+
+        public void AddState(GameState state)
+        {
+            state.manager = this;
+            states.Add(state.GetType(), state);
+        }
+
+        public void AddState<T>() where T : GameState
+        {
+            T state = Activator.CreateInstance<T>();
+            AddState(state);
+        }
+
+        // Shouldn't have to know about the State Object...
+        public void SetCurrentState(Type newStateType)
+        {
+            if (states.ContainsKey(newStateType))
+            {
+                GameState newState = states[newStateType];
+
+                // Exiting?
+                // What if we don't have a state?
+                // What if we're changing to the same state?
+                if (currentState != null && currentState != newState)
+                    currentState.OnStateExit();
+
+                currentState = newState;
+                currentState.OnStateEnter();
+
+                // When we change the state
+                // Exit the old one
+                // Enter the new one
+            }
+        }
+
+        public void SetCurrentState<T>() where T : GameState
+        {
+            Type stateType = typeof(T);
+            SetCurrentState(stateType);
+        }
+
+        // StateManager's job / role / responsibility is
+        // to get the "right" state to HandleInput/Update/Draw
+        public void HandleInput() => currentState.HandleInput();
+        public void Update() => currentState.Update();
+        public void Draw() => currentState.Draw();
+    }
+}
+
+
+## GameState cs
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Desktop
+{
+    public abstract class GameState
+    {
+        public StateManager manager;
+
+        public virtual void OnStateEnter() { }
+        public virtual void OnStateExit() { }
+
+        public abstract void HandleInput();
+        public abstract void Update();
+        public abstract void Draw();
+    }
+}
+
+## Welcome State cs
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using SplashKitSDK;
+
+namespace Desktop
+{
+    public class WelcomeState : GameState
+    {
+        public override void HandleInput()
+        {
+            // We can combine this with the Observer Pattern..
+            if (SplashKit.KeyTyped(KeyCode.SpaceKey))
+            {
+                // Change the state to Gameplay
+                // I don't know about the Gameplay State Object.....
+                // Now we don't need it, we just need the type
+                // I don't know about the State Manager.
+                manager.SetCurrentState<GameplayState>();
+            }
+        }
+
+        public override void Update()
+        {
+            // Might be nothing..?
+            // Update animations, check for collisions, run game logic....
+        }
+
+        public override void Draw()
+        {
+            // Draw stuff to the screen
+            SplashKit.DrawText("Welcome! Press Space to Enter Gameplay", Color.Black, 100, 100);
+        }
+    }
+}
+
+## Gameplay State cs
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using SplashKitSDK;
+
+namespace Desktop
+{
+    public class GameplayState : GameState
+    {
+        // Tiny game
+        // When you click, the counter goes up
+        // When you reach a number, we win.!
+        private int victoryClickCount = 10;
+        private int clickCount;
+        private bool didClick;
+
+        public override void OnStateEnter()
+        {
+            // Reset our settings
+            ResetSettings();
+        }
+
+        public void ResetSettings()
+        {
+            didClick = false;
+            clickCount = 0;
+        }
+
+        public override void HandleInput()
+        {
+            if (SplashKit.MouseClicked(MouseButton.LeftButton))
+            {
+                didClick = true;
+            }
+        }
+
+        public override void Update()
+        {
+            if (didClick)
+            {
+                didClick = false;
+                ++clickCount;
+                // Play sound?
+                // Play particle effect?
+                // Check for victory?
+                if (clickCount >= victoryClickCount)
+                {
+                    manager.SetCurrentState<VictoryState>();
+                }
+            }
+        }
+
+        public override void Draw()
+        {
+            SplashKit.DrawText("Gameplay State!!", Color.Black, 100, 100);
+            SplashKit.DrawText("Click Count: " + clickCount, Color.Black, 100, 150);
+        }
+    }
+}
+
+## Victory State cs
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using SplashKitSDK;
+
+namespace Desktop
+{
+    public class VictoryState : GameState
+    {
+        public override void HandleInput()
+        {
+            if (SplashKit.KeyTyped(KeyCode.SpaceKey))
+            {
+                manager.SetCurrentState<WelcomeState>();
+            }
+        }
+
+        public override void Update()
+        {
+        }
+
+        public override void Draw()
+        {
+            SplashKit.DrawText("YOU WON - CONGRATULATIONS!", Color.Black, 100, 100);
+            SplashKit.DrawText("Press Space to Return to Welcome", Color.Black, 100, 150);
+        }
+    }
+}
+
+
+
+
+

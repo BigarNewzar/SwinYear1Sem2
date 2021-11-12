@@ -1,0 +1,179 @@
+## Program cs
+
+using System;
+using SplashKitSDK;
+using Desktop;
+
+public class Program
+{
+    public static void Main()
+    {
+        new Window("Test", 800, 600);
+
+        // Observer Pattern
+        // Input Manager
+        // KeyListeners
+
+        var inputManager = new InputManager();
+        var player = new Player();
+        var uiControls = new UIControls();
+
+        inputManager.Add(player); // Subscribe to events
+        inputManager.Add(uiControls);
+
+        do
+        {
+            SplashKit.ProcessEvents();
+
+            inputManager.CheckInput();
+
+            SplashKit.ClearScreen();
+
+            SplashKit.RefreshScreen();
+        } while (!SplashKit.WindowCloseRequested("Test"));
+    }
+}
+
+## InputManager cs 
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using SplashKitSDK;
+
+namespace Desktop
+{
+    // Like our Message Manager.. sort of like our Drawing
+    public class InputManager
+    {
+        private List<IKeyListener> observers;
+        private List<KeyCode> keys;
+
+        public InputManager()
+        {
+            observers = new List<IKeyListener>();
+
+            keys = new List<KeyCode>
+            {
+                KeyCode.SpaceKey,
+                KeyCode.EscapeKey,
+                KeyCode.LeftShiftKey
+            };
+        }
+        
+        public void CheckInput()
+        {
+            // Check if a key is down
+            // If it is, let our observers know.
+            foreach (KeyCode key in keys)
+            {
+                if (SplashKit.KeyDown(key))
+                    NotifyObservers(key);
+            }
+        }
+
+        public void NotifyObservers(KeyCode keyCode)
+        {
+            // Let our observer know
+            foreach (IKeyListener observer in observers)
+                observer.OnKeyDown(keyCode);
+        }
+
+        public void Add(IKeyListener listener)
+            => observers.Add(listener);
+            
+
+        public void Remove(IKeyListener listener)
+            => observers.Remove(listener);
+    }
+}
+
+## IKeyListener cs
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using SplashKitSDK;
+
+namespace Desktop
+{
+    // Events
+    public interface IKeyListener
+    {
+        void OnKeyDown(KeyCode keyCode);
+    }
+}
+
+## Player cs
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using SplashKitSDK;
+
+namespace Desktop
+{
+    class Player : IKeyListener
+    {
+        public void OnKeyDown(KeyCode keyCode)
+        {
+            if (keyCode == KeyCode.SpaceKey)
+            {
+                Jump();
+            }
+
+            if (keyCode == KeyCode.LeftShiftKey)
+            {
+                Shoot();
+            }
+        }
+
+        public void Jump()
+        {
+            Console.WriteLine("Jumping!");
+            // Handle Player Jumping Logic here....
+        }
+
+        public void Shoot()
+        {
+            Console.WriteLine("Shoot");
+        }
+    }
+}
+
+## UI Controls cs
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using SplashKitSDK;
+
+namespace Desktop
+{
+    public class UIControls : IKeyListener
+    {
+        public void OnKeyDown(KeyCode keyCode)
+        {
+            // Pause on Escape
+            if (keyCode == KeyCode.EscapeKey)
+                Pause();
+        }
+
+        public void Pause()
+        {
+            Console.WriteLine("Pause");
+        }   
+    }
+}
+
+
+
+

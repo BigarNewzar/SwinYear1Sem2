@@ -1,0 +1,137 @@
+using System;
+
+namespace CompanyIS
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            Company c = Company.GetSingletonInstance();
+
+            c.AddEmployee(new Employee("001", "Shamara", 50000));
+
+            BaseSalaryVisitor baseSalVisitor = new BaseSalaryVisitor();
+            c.Accept(baseSalVisitor);
+
+            LeaveQuotaVisitor leaveQuotaVisitor = new LeaveQuotaVisitor();
+            c.Accept(leaveQuotaVisitor);
+
+            foreach (Employee e in c.EmpList)
+                Console.WriteLine(e.Name + " - " + e.BaseSalary);
+
+
+        }
+    }
+}
+
+
+/*
+ * The Company class keeps track of Employees. 
+ * This is used demonstrate Singleton and Visitor design pattern implementations.
+ */
+using System.Collections.Generic;
+
+
+namespace CompanyIS
+{
+    public class Company
+    {
+        private List<Employee> empList;
+        private static Company singletonCompany;
+
+        public List<Employee> EmpList { get => empList; set => empList = value; }
+
+        private Company()
+        {
+            EmpList = new List<Employee>();
+        }
+
+        public static Company GetSingletonInstance()
+        {
+            if (singletonCompany == null)
+                singletonCompany = new Company();//lazy initialisation
+            return singletonCompany;
+        }
+
+        public void AddEmployee(Employee e)
+        {
+            EmpList.Add(e);
+        }
+
+        public void Accept(IVisitor visitor)
+        {
+            foreach (Employee e in EmpList)
+                visitor.Visit(e);
+        }
+
+
+    }
+}
+
+
+/*
+ * This Employee class includes the information of an employee in a Company.
+ */
+
+using System;
+using System.Collections.Generic;
+
+namespace CompanyIS
+{
+    public class Employee
+    {
+        private string _id;
+        private string _name;
+        private double _baseSalary;
+        private int leaveQuota;
+
+        public Employee(string id, string name, double salary)
+        {
+            Id = id;
+            Name = name;
+            BaseSalary = salary;
+            LeaveQuota = 14;
+        }
+
+        public string Id { get => _id; init => _id = value; }
+        public string Name { get => _name; set => _name = value; }
+        public double BaseSalary { get => _baseSalary; set => _baseSalary = value; }
+        public int LeaveQuota { get => leaveQuota; set => leaveQuota = value; }
+    }
+}
+
+
+
+namespace CompanyIS
+{
+    public interface IVisitor
+    {
+        public void Visit(Employee e);
+    }
+}
+
+
+namespace CompanyIS
+{
+    class BaseSalaryVisitor : IVisitor
+    {
+        public void Visit(Employee e)
+        {
+            e.BaseSalary += e.BaseSalary * 0.03;
+        }
+    }
+}
+
+
+
+namespace CompanyIS
+{
+    class LeaveQuotaVisitor :IVisitor
+    {
+        public void Visit(Employee e)
+        {
+            e.LeaveQuota = 14;
+        }
+    }
+}
+
