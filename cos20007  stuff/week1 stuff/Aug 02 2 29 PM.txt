@@ -1,0 +1,119 @@
+##### PROGRAM . CS ########
+#####
+####
+####
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OOPDemo1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Declaration and Initialization
+            int x; // Declare - makes space
+            x = 5; // Initialize - puts something in the space
+
+            // Data Type - Variable Name = SomeValue
+            int[] numbers = new int[4];
+
+            numbers[0] = 0;
+            numbers[1] = 5;
+            numbers[2] = 4;
+            numbers[3] = 25;
+
+            // Primitive Data (ints, floats and such)
+            // Objects (Our own custom data)
+            TestObject testObject; // Allocates a spot for an object
+            testObject = new TestObject("hello"); // Puts the object in the spot
+
+            TestObject testObject2 = new TestObject("hello");
+
+            // String Variable Property
+            testObject.StringVariable = "hello"; // Set the value
+            //Console.WriteLine(testObject.StringVariable); // Get the value
+
+
+            // An Object that can:
+            //  - have variables
+            //  - access variables through properties
+            //  - do things through functions or "methods"
+            int x34 = 0;
+            int y = x34;
+
+            // Arrays of Objects
+            TestObject[] objects; // The array is null
+            objects = new TestObject[3]; // We have an array, but the objects are null!
+            objects[1] = new TestObject("hello"); // Now we have an object
+
+
+            // We only make a new object when we write "new",
+            // otherwise we are just copying a reference and if we change one, they both changed
+            TestObject obj1 = new TestObject("1");
+            TestObject obj2 = new TestObject("1");
+            TestObject obj3 = obj1;
+
+            obj1.StringVariable = "hey I changed";
+
+
+
+        }
+    }
+}
+
+##### TESTOBJECT . CS ########
+#####
+####
+####
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OOPDemo1
+{
+    // Difference between Class and Object
+    // Class = Blueprint
+    // Object = Real Data
+    class TestObject
+    {
+        private string stringVariable;
+
+        // Constructor
+        public TestObject(string newValue)
+        {
+            stringVariable = newValue;
+        }
+
+        // Properties
+        // Get - Read
+        // Set - Write 
+        public string StringVariable
+        {
+            get
+            {
+                return stringVariable;
+            }
+
+            set
+            {
+                stringVariable = value;
+            }
+        }
+
+        public void PrintToConsole()
+        {
+            Console.WriteLine(stringVariable);
+        }
+    }
+}
+
+
+
