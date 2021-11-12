@@ -1,0 +1,16 @@
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week2\2.1P-resources\CounterTest\CounterTest\bin\Debug\net5.0\CounterTest.exe
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week2\2.1P-resources\CounterTest\CounterTest\bin\Debug\net5.0\CounterTest.deps.json
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week2\2.1P-resources\CounterTest\CounterTest\bin\Debug\net5.0\CounterTest.runtimeconfig.json
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week2\2.1P-resources\CounterTest\CounterTest\bin\Debug\net5.0\CounterTest.runtimeconfig.dev.json
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week2\2.1P-resources\CounterTest\CounterTest\bin\Debug\net5.0\CounterTest.dll
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week2\2.1P-resources\CounterTest\CounterTest\bin\Debug\net5.0\ref\CounterTest.dll
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week2\2.1P-resources\CounterTest\CounterTest\bin\Debug\net5.0\CounterTest.pdb
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week2\2.1P-resources\CounterTest\CounterTest\obj\Debug\net5.0\CounterTest.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week2\2.1P-resources\CounterTest\CounterTest\obj\Debug\net5.0\CounterTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week2\2.1P-resources\CounterTest\CounterTest\obj\Debug\net5.0\CounterTest.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week2\2.1P-resources\CounterTest\CounterTest\obj\Debug\net5.0\CounterTest.AssemblyInfo.cs
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week2\2.1P-resources\CounterTest\CounterTest\obj\Debug\net5.0\CounterTest.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week2\2.1P-resources\CounterTest\CounterTest\obj\Debug\net5.0\CounterTest.dll
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week2\2.1P-resources\CounterTest\CounterTest\obj\Debug\net5.0\ref\CounterTest.dll
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week2\2.1P-resources\CounterTest\CounterTest\obj\Debug\net5.0\CounterTest.pdb
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week2\2.1P-resources\CounterTest\CounterTest\obj\Debug\net5.0\CounterTest.genruntimeconfig.cache
