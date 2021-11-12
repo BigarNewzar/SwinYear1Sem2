@@ -1,0 +1,149 @@
+// ########## PROGRAM CS
+// ##########
+// ##########
+// ##########
+// ##########
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OOPDemo3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var myMessage = new Message("First");
+            var manager = new MessageManager();
+
+            int msgLength = myMessage.MessageLength;
+
+            manager.AddMessage(myMessage);
+            manager.AddMessage(new Message("Second"));
+            manager.RemoveMessage(myMessage);
+
+            manager.PrintMessages();
+
+            var allMessages = manager.Messages;
+            var longMessages = manager.LongMessages;
+
+            // Remove all the long messages?
+            foreach (Message longMsg in longMessages)
+                manager.RemoveMessage(longMsg);
+        }
+    }
+}
+
+// ########## Message CS
+// ##########
+// ##########
+// ##########
+// ##########
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OOPDemo3
+{
+    public class Message
+    {
+        private string message;
+
+        public int MessageLength
+        {
+            get
+            {
+                int length = message.Length;
+                return length;
+            }
+        }
+
+        public string MessageProp
+        {
+            get { return message; }
+            set { message = value; }
+        }
+
+        public Message(string message)
+        {
+            this.message = message;
+        }
+
+        public void Print()
+        {
+            Console.WriteLine(message);
+        }
+    }
+}
+
+// ########## Message Manager CS
+// ##########
+// ##########
+// ##########
+// ##########
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OOPDemo3
+{
+    public class MessageManager
+    {
+        private List<Message> messages;
+        private int longMessageThreshold = 10;
+
+        public List<Message> Messages
+        {
+            get { return messages; }
+        }
+
+        public List<Message> LongMessages
+        {
+            get
+            {
+                var result = new List<Message>();
+
+                foreach (Message m in messages)
+                {
+                    if (m.MessageLength > longMessageThreshold)
+                        result.Add(m);
+                }
+
+                return result;
+            }
+        }
+
+        public MessageManager()
+        {
+            messages = new List<Message>();
+        }
+
+        public void AddMessage(Message m)
+        {
+            messages.Add(m);
+        }
+
+        public void RemoveMessage(Message m)
+        {
+            messages.Remove(m);
+        }
+
+        public void PrintMessages()
+        {
+            foreach (Message m in messages)
+            {
+                m.Print();
+            }
+        }
+    }
+}
+
