@@ -1,0 +1,3 @@
+﻿  ProgramClock.cpp
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week 10 (doing clock in advance as it looks  easy)\10.1P\ProgramClock\ProgramClock.cpp(17,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  ProgramClock.vcxproj -> C:\Users\User\Desktop\swinburne semester 2\COS20007\week 10 (doing clock in advance as it looks  easy)\10.1P\Debug\ProgramClock.exe
