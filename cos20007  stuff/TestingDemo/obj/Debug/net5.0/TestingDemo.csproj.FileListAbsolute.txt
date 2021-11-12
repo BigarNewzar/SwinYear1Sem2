@@ -1,0 +1,16 @@
+C:\Users\User\Desktop\swinburne semester 2\COS20007\TestingDemo\TestingDemo\bin\Debug\net5.0\TestingDemo.exe
+C:\Users\User\Desktop\swinburne semester 2\COS20007\TestingDemo\TestingDemo\bin\Debug\net5.0\TestingDemo.deps.json
+C:\Users\User\Desktop\swinburne semester 2\COS20007\TestingDemo\TestingDemo\bin\Debug\net5.0\TestingDemo.runtimeconfig.json
+C:\Users\User\Desktop\swinburne semester 2\COS20007\TestingDemo\TestingDemo\bin\Debug\net5.0\TestingDemo.runtimeconfig.dev.json
+C:\Users\User\Desktop\swinburne semester 2\COS20007\TestingDemo\TestingDemo\bin\Debug\net5.0\TestingDemo.dll
+C:\Users\User\Desktop\swinburne semester 2\COS20007\TestingDemo\TestingDemo\bin\Debug\net5.0\ref\TestingDemo.dll
+C:\Users\User\Desktop\swinburne semester 2\COS20007\TestingDemo\TestingDemo\bin\Debug\net5.0\TestingDemo.pdb
+C:\Users\User\Desktop\swinburne semester 2\COS20007\TestingDemo\TestingDemo\obj\Debug\net5.0\TestingDemo.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\swinburne semester 2\COS20007\TestingDemo\TestingDemo\obj\Debug\net5.0\TestingDemo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\swinburne semester 2\COS20007\TestingDemo\TestingDemo\obj\Debug\net5.0\TestingDemo.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\swinburne semester 2\COS20007\TestingDemo\TestingDemo\obj\Debug\net5.0\TestingDemo.AssemblyInfo.cs
+C:\Users\User\Desktop\swinburne semester 2\COS20007\TestingDemo\TestingDemo\obj\Debug\net5.0\TestingDemo.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\swinburne semester 2\COS20007\TestingDemo\TestingDemo\obj\Debug\net5.0\TestingDemo.dll
+C:\Users\User\Desktop\swinburne semester 2\COS20007\TestingDemo\TestingDemo\obj\Debug\net5.0\ref\TestingDemo.dll
+C:\Users\User\Desktop\swinburne semester 2\COS20007\TestingDemo\TestingDemo\obj\Debug\net5.0\TestingDemo.pdb
+C:\Users\User\Desktop\swinburne semester 2\COS20007\TestingDemo\TestingDemo\obj\Debug\net5.0\TestingDemo.genruntimeconfig.cache
