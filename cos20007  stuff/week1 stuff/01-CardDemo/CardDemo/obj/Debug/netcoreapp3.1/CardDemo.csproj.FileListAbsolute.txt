@@ -1,0 +1,10 @@
+/Users/cpierce/Dropbox/Teaching/OOP/LectureDemos/CardDemo/CardDemo/bin/Debug/netcoreapp3.1/CardDemo.deps.json
+/Users/cpierce/Dropbox/Teaching/OOP/LectureDemos/CardDemo/CardDemo/bin/Debug/netcoreapp3.1/CardDemo.runtimeconfig.json
+/Users/cpierce/Dropbox/Teaching/OOP/LectureDemos/CardDemo/CardDemo/bin/Debug/netcoreapp3.1/CardDemo.runtimeconfig.dev.json
+/Users/cpierce/Dropbox/Teaching/OOP/LectureDemos/CardDemo/CardDemo/bin/Debug/netcoreapp3.1/CardDemo.dll
+/Users/cpierce/Dropbox/Teaching/OOP/LectureDemos/CardDemo/CardDemo/bin/Debug/netcoreapp3.1/CardDemo.pdb
+/Users/cpierce/Dropbox/Teaching/OOP/LectureDemos/CardDemo/CardDemo/obj/Debug/netcoreapp3.1/CardDemo.csprojAssemblyReference.cache
+/Users/cpierce/Dropbox/Teaching/OOP/LectureDemos/CardDemo/CardDemo/obj/Debug/netcoreapp3.1/CardDemo.AssemblyInfoInputs.cache
+/Users/cpierce/Dropbox/Teaching/OOP/LectureDemos/CardDemo/CardDemo/obj/Debug/netcoreapp3.1/CardDemo.AssemblyInfo.cs
+/Users/cpierce/Dropbox/Teaching/OOP/LectureDemos/CardDemo/CardDemo/obj/Debug/netcoreapp3.1/CardDemo.dll
+/Users/cpierce/Dropbox/Teaching/OOP/LectureDemos/CardDemo/CardDemo/obj/Debug/netcoreapp3.1/CardDemo.pdb
