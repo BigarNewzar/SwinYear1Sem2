@@ -1,0 +1,43 @@
+WIll this be ok to do as a research project:
+
+Theme: Use of Factory Pattern
+
+question to ask: Is Factory Pattern better or worse for the program?
+
+intro: Speaking about Factory Pattern in general + defn+ with its usuage in common programs
+
+Para 2: 	Setting up a small factory patterndesign in code + explaination of steps
+ 
+Points i would focus on:
+
+1)Visual difference: 
+
+extra lines of code need to setup 
+
+(so not really needed if only 1 new object is added. best to use for multiple switch adn ifcase replacement of obj creation + give example of place where it shouldnt be used like with only 1 object)
+					+
+ie activegamelogic doesnt need to know what parameters are needed to make entities
+
+(The creation of an object requires access to information or resources that should not be contained within the composing class.)
+					+
+only need to pass in type in the client part & no need to instantiate in there
+
+(so good level of encapsulation and stuff (speak in terms of cohesiona nd coupling))
+					+
+no need high level of inheritance in setup
+
+(using factories provides encapsulation, and means the code is not tied to specific classes or objects, and thus the class hierarchy or prototypes can be changed or refactored without needing to change code that uses them – they abstract from the class hierarchy or prototypes.) 
+					+
+easy to add new stuff as centralized the management, 
+
+					
+
+2)Practical Difference:
+
+RunTime DIfference between the normal and factory pattern code for multiple object creation
+						+
+Storage Usage when making multiple object creation in both ways
+						+
+Memory Usage when making multiple...... (not sure how to do this part, is there a way to see this in VS after code has completed running?)
+
+Conclusion: COnsider whether it is actually useful for code or not and what sort of code would it benefit or harm

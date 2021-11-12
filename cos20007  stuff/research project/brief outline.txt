@@ -1,0 +1,46 @@
+WIll this be ok to do as a research project?
+
+Theme: 
+Use of Factory Pattern
+
+question to ask: 
+Is Factory Pattern better or worse for programs?//// using factory pattern as inheritance alternative adn speak in that lines....
+
+intro: 
+	Speaking about Factory Pattern in general + defn+ with its usuage in common programs
+	(also will say the following near end of para:
+	"i will say how to set it up and give visual and practical difference as scope of the writing")
+
+Para 2: 	
+	Setting up a small factory patterndesign in code + explaination of steps
+	setting up same code witout using factory (ie via inheritance)
+ 
+Body Paras: 
+
+	Points i would focus on (given in 1 and 2): (by normal i mean by using inheritance and instantiate in main file (like activelogic if thought from custom game pov) method)
+
+	1)Visual difference: ////say it as :       design or qualitative difference
+
+		a)extra lines of code need to setup 
+						+
+		b)Client (ie activegamelogic) doesnt need to know what parameters are needed to make entities so ...encapsulation and info hidiing
+						+
+		c)only need to pass in type in the client part & no need to instantiate in there (encapsulation + cohesion + coupling)
+						+
+		d)no need high level of inheritance in setup so easy to add new stuff and centralise obj management
+
+
+						
+
+	2)Practical Difference:  /////say it as :       performance difference
+
+		a)RunTime DIfference between the normal and factory pattern code for multiple object creation
+							+
+		b)Storage Usage when making multiple object creation in both ways
+							+
+		c)Memory Usage when making multiple...... (not sure how to do this part, is there a way to see this in VS after code has completed running?)
+		//diagnostic info, Vs setting , system library
+
+Conclusion: 
+	Consider whether it is actually useful for general purpose codes or not 
+	what sort of code would it benefit or harm
