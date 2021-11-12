@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Swin_Adventure</RootNamespace>
+    <ApplicationIcon />
+    <StartupObject />
+  </PropertyGroup>
+
+</Project>
