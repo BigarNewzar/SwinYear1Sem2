@@ -1,0 +1,148 @@
+##### PROGRAM CS
+####
+####
+###
+####
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OOPDemo2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            ExampleClass obj1 = new ExampleClass("1");
+            ExampleClass obj2 = new ExampleClass();
+
+            List<ExampleClass> objects = new List<ExampleClass>();
+            objects.Add(new ExampleClass("1"));
+            objects.Add(new ExampleClass("2"));
+            objects.Add(new ExampleClass("3"));
+            objects.Add(new ExampleClass("4"));
+
+            List<ExampleClass> objects2 = new List<ExampleClass>();
+
+            objects.Add(obj1);
+            objects2.Add(obj1);
+
+            ExampleClass extraReference = objects2[0];
+            objects2.Remove(extraReference);
+
+            PrintList(objects);
+        }
+
+        public static void PrintList(List<ExampleClass> toPrint)
+        {
+            int count = toPrint.Count;
+            int secondVar = 234234;
+
+            // For loop
+            for (int i = 0; i < toPrint.Count; ++i)
+            {
+                ExampleClass obj = toPrint[i];
+                obj.Print();
+                toPrint[i].Print();
+            }
+
+            // Foreach loop
+            foreach (ExampleClass obj in toPrint)
+            {
+                obj.Print();
+            }
+
+            Console.WriteLine("My list has {0} {1} objects", count, secondVar);
+            Console.WriteLine("My list has" + count + secondVar + " objects");
+        }
+    }
+}
+
+####### EXAMPLE CLASS cs
+#######
+#######
+#######
+#######
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OOPDemo2
+{
+    class ExampleClass
+    {
+        public string message;        
+
+        // "this"
+        // Default constructor
+        public ExampleClass() : this("")
+        {
+            // Ideally this is blank
+        }
+
+        public ExampleClass(string msg)
+        {
+            message = msg;
+        }
+
+        public void Print()
+        {
+            Console.WriteLine(message);
+        }
+
+        public void ResetMessage()
+        {
+            message = "";
+        }
+    }
+}
+
+
+###### EXAMPLE CLASS TESTS cs
+#####
+#####
+#####
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using NUnit.Framework;
+
+
+namespace OOPDemo2
+{
+    [TestFixture]
+    class ExampleClassTests
+    {
+        private ExampleClass testObject;
+
+        [SetUp]
+        public void SetUp()
+        {
+            testObject = new ExampleClass();
+        }
+
+        [Test]
+        public void TestResetMessage()
+        {
+            // Define an expected result
+            string expected = "";
+            // Run the test
+            testObject.ResetMessage();
+            // Define the actual result
+            string actual = testObject.message;
+            // Assert expected and actual are the same
+            Assert.AreEqual(expected, actual);
+        }
+    }
+}
+
+
