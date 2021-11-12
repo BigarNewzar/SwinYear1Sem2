@@ -1,0 +1,85 @@
+/*
+Theme Name: Zerif Lite Child
+Theme URI: http://themeisle.com/themes/zerif-lite/
+Author: Justin Johnson
+Author URI: http://justindjohnson.com
+Description: This child theme allows customization of the Zerif Lite theme without breaking the ability to update. All customizations to functionality should be isolated to this theme.
+Version: 1.0
+License: GNU General Public License version 3
+Text Domain: zerif-lite-child
+Template: zerif-lite
+Domain Path: /languages/
+*/
+
+
+/* fixes for issues with buttons on home page */
+a.btn {
+    padding:10px 16px;
+}
+
+a.red-btn {
+    background:#FF0020;
+    border-color:#FF0020;
+}
+
+a.green-btn {
+    background:#1E9E6B;
+    border-color:#1E9E6B;
+}
+
+/* fix for top bar being grey */
+div.navbar-inverse {
+    background-color:#FFF;
+    border:0;
+}
+
+/* fix for tiny logo */
+a.navbar-brand {
+    height:76px;
+}
+
+/* fix for navbar link colors */
+.navbar-inverse .navbar-nav>li>a {
+    color:#444;
+    font-size:18pt;
+}
+
+.navbar-inverse .navbar-nav>li>a:focus {
+    color:#FF0020;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover {
+    color:#FF0020;
+}
+
+/* fixes sidebar text being cut off */
+div.dtNode a.node {
+    font-size: 11pt;
+}
+
+/* decreases sidebar line indentation */
+img.emptyImg {
+    width:8px;
+}
+
+div.frb_toggle {
+    border-radius: 5px;
+    border: 1px dashed #CCC;
+    padding: 8px;
+}
+
+.frb_toggle_symbol {
+    margin-right: 8px;
+}
+
+div.frb_toggle .frb_toggle_title {
+    cursor: pointer;
+    background:#CCC;
+    padding:7px;
+    margin:0;
+    font-weight: bold;
+}
+
+div.frb_toggle .frb_toggle_body {
+    display:none;
+}
