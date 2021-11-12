@@ -1,0 +1,16 @@
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week8\8.1\TestLibrary\TestLibrary\bin\Debug\net5.0\TestLibrary.exe
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week8\8.1\TestLibrary\TestLibrary\bin\Debug\net5.0\TestLibrary.deps.json
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week8\8.1\TestLibrary\TestLibrary\bin\Debug\net5.0\TestLibrary.runtimeconfig.json
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week8\8.1\TestLibrary\TestLibrary\bin\Debug\net5.0\TestLibrary.runtimeconfig.dev.json
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week8\8.1\TestLibrary\TestLibrary\bin\Debug\net5.0\TestLibrary.dll
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week8\8.1\TestLibrary\TestLibrary\bin\Debug\net5.0\ref\TestLibrary.dll
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week8\8.1\TestLibrary\TestLibrary\bin\Debug\net5.0\TestLibrary.pdb
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week8\8.1\TestLibrary\TestLibrary\obj\Debug\net5.0\TestLibrary.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week8\8.1\TestLibrary\TestLibrary\obj\Debug\net5.0\TestLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week8\8.1\TestLibrary\TestLibrary\obj\Debug\net5.0\TestLibrary.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week8\8.1\TestLibrary\TestLibrary\obj\Debug\net5.0\TestLibrary.AssemblyInfo.cs
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week8\8.1\TestLibrary\TestLibrary\obj\Debug\net5.0\TestLibrary.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week8\8.1\TestLibrary\TestLibrary\obj\Debug\net5.0\TestLibrary.dll
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week8\8.1\TestLibrary\TestLibrary\obj\Debug\net5.0\ref\TestLibrary.dll
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week8\8.1\TestLibrary\TestLibrary\obj\Debug\net5.0\TestLibrary.pdb
+C:\Users\User\Desktop\swinburne semester 2\COS20007\week8\8.1\TestLibrary\TestLibrary\obj\Debug\net5.0\TestLibrary.genruntimeconfig.cache
