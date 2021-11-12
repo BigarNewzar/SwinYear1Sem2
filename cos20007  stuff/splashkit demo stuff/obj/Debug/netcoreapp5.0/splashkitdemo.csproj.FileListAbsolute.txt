@@ -1,0 +1,16 @@
+C:\Users\User\Desktop\swinburne semester 2\COS20007\splashkitdemo\bin\Debug\netcoreapp5.0\splashkitdemo.exe
+C:\Users\User\Desktop\swinburne semester 2\COS20007\splashkitdemo\bin\Debug\netcoreapp5.0\splashkitdemo.deps.json
+C:\Users\User\Desktop\swinburne semester 2\COS20007\splashkitdemo\bin\Debug\netcoreapp5.0\splashkitdemo.runtimeconfig.json
+C:\Users\User\Desktop\swinburne semester 2\COS20007\splashkitdemo\bin\Debug\netcoreapp5.0\splashkitdemo.runtimeconfig.dev.json
+C:\Users\User\Desktop\swinburne semester 2\COS20007\splashkitdemo\bin\Debug\netcoreapp5.0\splashkitdemo.dll
+C:\Users\User\Desktop\swinburne semester 2\COS20007\splashkitdemo\bin\Debug\netcoreapp5.0\ref\splashkitdemo.dll
+C:\Users\User\Desktop\swinburne semester 2\COS20007\splashkitdemo\bin\Debug\netcoreapp5.0\splashkitdemo.pdb
+C:\Users\User\Desktop\swinburne semester 2\COS20007\splashkitdemo\obj\Debug\netcoreapp5.0\splashkitdemo.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\swinburne semester 2\COS20007\splashkitdemo\obj\Debug\netcoreapp5.0\splashkitdemo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\swinburne semester 2\COS20007\splashkitdemo\obj\Debug\netcoreapp5.0\splashkitdemo.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\swinburne semester 2\COS20007\splashkitdemo\obj\Debug\netcoreapp5.0\splashkitdemo.AssemblyInfo.cs
+C:\Users\User\Desktop\swinburne semester 2\COS20007\splashkitdemo\obj\Debug\netcoreapp5.0\splashkitdemo.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\swinburne semester 2\COS20007\splashkitdemo\obj\Debug\netcoreapp5.0\splashkitdemo.dll
+C:\Users\User\Desktop\swinburne semester 2\COS20007\splashkitdemo\obj\Debug\netcoreapp5.0\ref\splashkitdemo.dll
+C:\Users\User\Desktop\swinburne semester 2\COS20007\splashkitdemo\obj\Debug\netcoreapp5.0\splashkitdemo.pdb
+C:\Users\User\Desktop\swinburne semester 2\COS20007\splashkitdemo\obj\Debug\netcoreapp5.0\splashkitdemo.genruntimeconfig.cache
