@@ -1,0 +1,108 @@
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+exit
+
+enable
+conf t
+hostname S1
+end
+
+
+enable
+conf t
+banner motd $*********
+Warning! Unauthorised people are not allowed! 
+studentID:103172423
+*********$
+end
+
+sh ip int b
+
+enable
+conf t
+int range F0/1-24
+shutdown
+end
+
+enable
+conf t
+int range G0/1-2
+shutdown
+end
+
+//dont use this as it said to turn off all except those connected to pc
+enable
+conf t
+int range F0/1-4
+no shutdown
+end
+
+
+enable
+conf t
+int range F0/18
+no shutdown
+end
+
+
+
+enable
+conf t
+vlan 10
+name Staff
+end
+
+enable
+conf t
+int F0/18
+switchport mode access
+switchport access vlan 10
+end
+
+enable
+conf t
+vlan 99
+name Management
+exit
+int vlan 99
+description For Management Purpose
+ip address 192.168.99.11 255.255.255.0
+end
+
+sh vlan b
+sh ip int b
+
+///////part3
+enable
+conf t
+int range f0/1-2
+switchport mode trunk
+switchport trunk native vlan 99
+channel-group 2 mode passive
+no shutdown
+end
+
+show etherchannel summary
+
+
+
+enable
+conf t
+int range f0/3-4
+switchport mode trunk
+switchport trunk native vlan 99
+channel-group 3 mode active
+no shutdown
+end
+
+
+show etherchannel summary
+
+ping 192.168.99.11
+
+ping 192.168.99.13
+
+ping 192.168.99.14

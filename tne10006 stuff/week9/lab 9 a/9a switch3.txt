@@ -1,0 +1,145 @@
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+exit
+
+enable
+conf t
+hostname S3
+end
+
+enable
+conf t
+banner motd $*********
+Warning! Unauthorised people are not allowed! 
+studentID:103172423
+*********$
+end
+
+enable
+conf t
+int range g1/0/1-24
+shutdown
+end
+
+enable
+conf t
+int range g1/1/1-4
+shutdown
+end
+
+//dont use this as it said to turn off all except those connected to pc
+enable
+conf t
+int range G1/0/1-2
+no shutdown
+end
+enable
+conf t
+int range G1/0/5-6
+no shutdown
+end
+
+
+enable
+conf t
+int range G1/0/7
+no shutdown
+end
+
+
+enable
+conf t
+vlan 10
+name Staff
+end
+
+enable
+conf t
+int G1/0/7
+switchport mode access
+switchport access vlan 10
+end
+
+
+enable
+conf t
+vlan 99
+name Management
+exit
+int vlan 99
+description For Management Purpose
+ip address 192.168.99.13 255.255.255.0
+end
+
+sh vlan b
+sh ip int b
+
+
+
+
+/////part2
+
+
+enable
+conf t
+int range G1/0/5-6
+channel-group 1 mode desirable
+no shutdown
+end
+
+show run interface G1/0/5
+
+show interface G1/0/5 switchport
+
+
+show run interface G1/0/6
+
+show interface G1/0/6 switchport
+
+//try to see what this shows
+show run interface Po1
+
+show interface Po1 switchport
+
+show etherchannel summary
+
+enable
+conf t
+int port-channel 1
+switchport mode trunk
+switchport trunk native vlan 99
+end
+
+show run interface G1/0/5
+
+show run interface G1/0/6
+
+
+show run interface Po1
+
+show interface trunk
+
+show spanning-tree
+
+///////part3
+enable
+conf t
+int range g1/0/1-2
+switchport mode trunk
+switchport trunk native vlan 99
+channel-group 2 mode active
+no shutdown
+end
+
+
+show etherchannel summary
+
+
+ping 192.168.99.11
+
+ping 192.168.99.13
+
+ping 192.168.99.14
