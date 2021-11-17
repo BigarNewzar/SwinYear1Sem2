@@ -1,0 +1,6 @@
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+exit

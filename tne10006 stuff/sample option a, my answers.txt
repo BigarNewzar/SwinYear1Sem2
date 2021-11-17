@@ -1,0 +1,222 @@
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+end
+
+enable
+conf t
+hostname S3
+end
+
+enable
+conf t
+banner motd $*********
+studentID:103172423
+*********$
+end
+
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+end
+
+enable
+conf t
+hostname S4
+end
+
+enable
+conf t
+banner motd $*********
+studentID:103172423
+*********$
+end
+
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+end
+
+enable
+conf t
+hostname R1
+end
+
+enable
+conf t
+banner motd $*********
+studentID:103172423
+*********$
+end
+
+
+
+enable
+conf t
+vlan 150
+name Apples
+end
+
+
+
+enable
+conf t
+vlan 200
+name Management
+exit
+int vlan 200
+description Management Vlan
+ip address 198.72.210.72 255.255.255.192
+exit
+
+sh vlan b
+sh ip int b
+
+enable
+conf t
+int range g1/0/1-24
+shutdown
+end
+
+enable
+conf t
+int range g1/1/1-4
+shutdown
+end
+
+enable
+conf t
+int g1/0/11
+no shutdown
+end
+
+enable
+conf t
+int g1/0/5
+no shutdown
+end
+
+
+
+enable
+conf t
+int g0/0/1
+no shutdown
+end
+
+
+
+
+enable
+conf t
+vlan 150
+name Apples
+end
+
+enable
+conf t
+vlan 200
+name Management
+exit
+int vlan 200
+description Management Vlan
+ip address 198.72.210.73 255.255.255.192
+end
+
+sh vlan b
+sh ip int b
+
+enable
+conf t
+int g1/0/3
+switchport mode access
+switchport access vlan 150
+end
+
+enable
+conf t
+int range g1/0/1-24
+shutdown
+end
+
+enable
+conf t
+int range g1/1/1-4
+shutdown
+end
+
+enable
+conf t
+int g1/0/3
+no shutdown
+end
+
+enable
+conf t
+int g1/0/5
+no shutdown
+end
+
+enable
+conf t
+ip default-gateway 198.72.210.65
+end
+
+enable 
+conf t
+int g1/0/11
+switchport trunk encapsulation dot1q
+switchport mode trunk
+end
+
+enable 
+conf t
+int g1/0/5
+switchport trunk encapsulation dot1q
+switchport mode trunk
+end
+
+
+enable 
+conf t
+int g1/0/5
+switchport trunk encapsulation dot1q
+switchport mode trunk
+end
+
+enable
+conf t
+int g0/0/1.150
+description Connection to VLAN 150
+encapsulation dot1Q 150
+ip address 142.60.32.1 255.255.248.0
+end
+
+enable
+conf t
+int g0/0/1.200
+description Connection to management vlan
+encapsulation dot1Q 200
+ip address 198.72.210.65 255.255.255.192
+end
+enable
+
+conf t
+int lo0
+description loopback test interface
+ip address 53.20.5.33 255.255.255.224
+end
+
+ping 198.72.210.65
+ping 142.60.32.1
+ping 198.72.210.72
+
+ping 198.72.210.73
+
+ping 142.60.32.5

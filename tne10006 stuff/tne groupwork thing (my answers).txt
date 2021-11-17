@@ -1,0 +1,104 @@
+answers i think:
+Section1:
+Q1)a)Yes because they are on the same subnet, connected by a port interface and also on the same vlan 10.
+
+b)Yes, as they are on same vlan 10, on same subnet and connected by a port interface
+
+c)No, as they are different subnet and different vlan
+
+d)Yes, as they are on same subnet, vlan and have connected by a port interface between s4 and s3 and s3 and pcA
+
+e) No, as different vlan and subnet
+
+Q2)a) there are 2 connected (c) networks:
+
+C        192.168.10.0/24 is directly connected, GigabitEthernet0/0/1
+
+C        192.168.20.0/24 is directly connected, GigabitEthernet0/0/0
+
+b) yes as now router's interfaces and ips have been assigned and before gateway had been assigned for both s3 and s4. Thus communication between different vlans and subnetting can be made possible by the router. So devices from different vlan and subnets can ping each other
+
+c) Yes, because pcA and pcB are in different vlans and subnets and thus layer 3 router is needed as it can pass traffic between the different vlans and subnets
+
+d)No. PCA and switch 3 are in the same subnet and vlan and thus will not need router to help them ping.
+
+Q3)a)  There will only be 1 connected (c) network:
+C        192.168.20.0/24 is directly connected, GigabitEthernet0/0/0
+
+b) yes. as they are still in same vlan, same subnet and connected by an interface port
+
+c)No. PCA and PCB are in different vlan and subnet and thus they need router to communicate between different vlans. But port g0/0/1  used to carry traffic from vlan 10 to router was shutdown. Thus traffic from PCA in vlan 10 will not reach the router and thus
+PCA will not be able to ping PCB
+
+Section 2:
+1)a)There will only be 3 connected (c) network:
+
+C        192.168.1.0/24 is directly connected, GigabitEthernet0/0/1.99
+
+C        192.168.10.0/24 is directly connected, GigabitEthernet0/0/1.10
+
+C        192.168.20.0/24 is directly connected, GigabitEthernet0/0/1.20
+
+//note to self, now s3,s4 is in vlan 99, pca in vlan 10, pc b in vlan 20
+
+b)yes it can ping. yes it would need router as they are in different subnets and vlans
+
+c)yes, it can ping. yes it would need router as they are in different subnet and vlans
+
+d)yes, it can ping. yes it would need router as they are in different subnet and vlans
+
+e)yes, it can ping. yes it would need router as they are in different subnet and vlans
+
+f)To test and see if traffic from different vlans could reah s3 adn s4
+
+Q2) a) There will only be 1 connected (c) network:
+C        209.165.200.224/27 is directly connected, Loopback0
+
+Section 3 relfection:
+(wrote most of the info from online stuff, so may not be accurate)
+
+Q1)a) To use as management Vlan and thus perform remote management and configuration of the switch
+
+b)To connect to a L3 device like router and thus enable intervlan and intersubnet communication
+
+c)the ip address of router or L3 device should be configured. Also that router/L3 device should have the ports allocated to the different vlans that we are passing traffic to and from
+
+
+2)a)We used pre interface intervlan routing and router on a stick.
+
+Pre interface routing uses actual routers to route between vlans. There each Vlan was connected to a different physical router interface, where each packets would arrive though one interface, be routed and leave through another interface.Thats because the router interfaces were connected to Vlans and had IP specific to that Vlan. thus they could route between the vlans. Problem here was that large networks with large number of Vlans needed many router interfaces which increased the cost.
+
+In router on a stick, instead of connecting each port to different vlans, we configured one of the ports as a 802.1Q trunk port so that it can understand vlan tags. Then we made logical subinterfaces (unlike the physical ports used in pre interface) with one for each vlan. The subinterfaces were configured with an IP from the Vlan it represented. Also, the hosts in each vlans (ie vlan members) were configured to use the subinterface addresses as default gateway. Here the benefit was that only one of the router's physical interface had been used and thus ends up saving a huge amount of cost.
+
+b)ON the router this is achieved by making subinterfaces, assigning descriptions (for later documentation), configuring subinterfaces to be attached a certain vlans, assigning Ip address and mask for the vlans to those interfaces.
+
+On the switch, this is done by assigning an interface on it to the certain vlan, allocating IP address and masks for that vlans to the switch, using the IP of the subinterface aas gateway.
+(also the link between them must be trunk to carry the different vlans to the router)
+
+c) 
+	1)Need only 1 Lan connection and only 1 router for multiple vlans
+	
+    2)shaping traffic by  segmenting vlans, reducing the flow of traffic through a connection 
+	
+    3)provides extra network security as network admins have direct control over multiple domains
+	
+	4)users requiring high level of securty can be isolated from other networks
+	
+	5)networks are independent from their physical location
+	
+	6)Changes to networks like adding or removing a broadcast domain can be done by assigning hosts to the appropriate VLANs and controlled by implementing as many VLANs as required. (increase no of network, but decrease thie size)
+	
+d)
+1)the trunk may become a source of congestion as traffic from all VLANs must flow through the single trunk link. (but can be mitigated if interfaces are combined with other via link aggregation)
+
+2)if router fails and there is no backup then the network will fail as vlans will need that router to sent traffic to different vlans
+
+3)it needs additional configuration and virtual implimentation
+
+e)Yes, it was L or local network. Local network identifies the address assigned to a router’s interface. This allows the router to efficiently determine when it receives a packet for the interface instead of being forwarded.
+Basically, it is the route that belongs to the router/switch itself. It will be for a configured ip address itself and have prefix length of /32
+
+	
+
+
+

@@ -1,0 +1,5 @@
+enable
+conf t
+banner motd $**********
+***unauthorised access is prohibited*****
+******************$
