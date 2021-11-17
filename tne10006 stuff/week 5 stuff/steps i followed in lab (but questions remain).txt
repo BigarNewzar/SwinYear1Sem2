@@ -1,0 +1,422 @@
+Part 1 step 1+2:
+
+enable
+erase startup-config
+
+delete vlan.dat
+
+conf t
+hostname
+
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+exit
+
+
+show ip int b
+
+conf t
+interface giga1/0/6
+shutdown
+exit
+
+
+for switch3:
+
+conf t
+interface range giga1/0/5
+no shutdown
+exit
+
+conf t
+interface range giga1/0/7
+no shutdown
+exit
+
+conf t
+interface range giga1/0/1-4
+shutdown
+exit
+
+conf t
+interface range giga1/0/8-10
+shutdown
+exit
+
+conf t
+interface range giga1/0/12-23
+shutdown
+exit
+
+conf t
+interface range giga1/1/1-4
+shutdown
+exit
+
+
+
+for switch4:
+
+conf t
+interface range giga1/0/5
+no shutdown
+exit
+
+conf t
+interface range giga1/0/12
+no shutdown
+exit
+
+conf t
+interface range giga1/0/24
+no shutdown
+exit
+
+conf t
+interface range giga1/0/1-4
+shutdown
+exit
+conf t
+interface range giga1/0/6-11
+shutdown
+exit
+
+conf t
+interface range giga1/0/13-23
+shutdown
+exit
+
+conf t
+interface range giga1/1/1-4
+shutdown
+exit
+
+for router:
+
+conf t
+interface range giga0/0/0-1
+no shutdown
+exit
+
+Part2:step1:
+switch3:
+
+enable
+conf t
+vlan 10
+name student
+vlan 20
+name Faculty-Admin
+end
+
+enable
+conf t
+int g1/0/5
+switchport mode trunk
+end
+
+enable
+conf t
+int g1/0/7
+switchport mode access
+switchport access vlan 10
+end
+
+enable
+conf t
+int g1/0/11
+switchport mode access
+switchport access vlan 10
+end
+
+conf t
+int vlan 10
+ip address 192.168.10.11 255.255.255.0
+end
+show vlan brief
+
+show ip int b
+
+
+step2:
+switch4:
+
+enable
+conf t
+vlan 10
+name student
+vlan 20
+name Faculty-Admin
+end
+
+enable
+conf t
+int g1/0/5
+switchport mode trunk
+end
+
+enable
+conf t
+int g1/0/12
+switchport mode access
+switchport access vlan 20
+end
+
+enable
+conf t
+int g1/0/24
+switchport mode access
+switchport access vlan 20
+end
+
+conf t
+int vlan 10
+ip address 192.168.10.12 255.255.255.0
+end
+show vlan brief
+
+show ip int b
+
+
+
+step3:(do on both switches)
+
+
+enable
+conf t
+ip default-gateway 192.168.10.1
+end
+
+Part3:step2: (router)
+
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+exit
+
+enable
+conf t
+hostname Router1
+end
+
+enable
+conf t
+banner motd $
+**********************************
+**Unauthorised Entry Not Allowed**
+**********************************
+$
+end
+
+step3:(router)
+
+enable
+conf t
+int g0/0/0
+description Connection to Switch2 - VLan20
+ip address 192.168.20.1 255.255.255.0
+no shutdown
+end
+
+enable
+conf t
+int g0/0/1
+description Connection to Switch1 - VLan10
+ip address 192.168.10.1 255.255.255.0
+no shutdown
+end
+
+show ip route
+
+show ip int b
+
+show int trunk
+
+part4:(router ping)
+
+//this ping didnt work. but why?
+ping 192.168.10.11 source g/0/0
+
+//this ping worked though
+ping 192.168.10.12 source g/0/0
+
+part5:(router ssh)
+
+
+conf t
+ip domain-name ccna.lab
+username admin privilege 15 secret adminpass
+line vty 0 4
+transport input ssh
+login local
+exit
+crypto key generate rsa general-keys modulus 1024
+exit
+
+
+(lab 5b, continuing with previous setup)
+
+conf t
+int g0/0/0
+shutdown
+end
+
+show ip int b
+
+step5:
+switch3:
+//here i have no idea how to use no interface vlan, so instead used no vlan 10
+//and removed the interfaces from vlan 10 manually
+//maybe that also lead to the problem later on?
+
+
+
+conf t
+vlan 99
+name Management
+exit
+
+conf t
+int g1/0/7
+no switchport access vlan
+exit
+
+conf t
+int g1/0/11
+no switchport access vlan
+exit
+
+
+conf t
+no vlan 10
+exit
+
+conf t
+int vlan 99
+ip address 192.168.1.11 255.255.255.0
+end
+
+
+switch4:
+
+conf t
+vlan 99
+name Management
+exit
+
+conf t
+int g1/0/12
+no switchport access vlan
+exit
+
+conf t
+int g1/0/24
+no switchport access vlan
+exit
+
+
+conf t
+no vlan 10
+exit
+
+conf t
+int vlan 99
+ip address 192.168.1.12 255.255.255.0
+end
+
+
+
+step7: (router)
+
+conf t
+int lo0
+description Loopback test interface
+ip address 209.165.200.225 255.255.255.224
+end
+
+sh ip route
+
+
+
+Part2:
+step 1:(switch3)
+
+conf t
+int g1/0/11
+switchport mode trunk
+exit
+
+
+
+
+step2:(router)
+
+conf t
+int g0/0/1
+no shutdown
+end
+
+
+
+step3:(router)
+//ask her to explain what to understand from part f in pdf
+// for g in pdf, first part works router side ping s3 and s4 works, but second part where switch side ping router
+//part doesnt work for either switch 3 or switch 4.
+//
+
+
+conf t
+int g0/0/1.99
+description Connection to Management VLAN
+encapsulation dot1Q 99
+ip address 192.168.1.1 255.255.255.0
+end
+
+sh ip route
+sh ip int b
+
+
+
+conf t
+int g0/0/1.10
+description Connection to VLAN10
+encapsulation dot1Q 10
+ip address 192.168.10.1 255.255.255.0
+end
+
+sh ip route
+sh ip int b
+
+
+conf t
+int g0/0/1.20
+description Connection to VLAN20
+encapsulation dot1Q 20
+ip address 192.168.20.1 255.255.255.0
+end
+
+sh ip route
+sh ip int b
+
+step 4:
+//none of the pings work here for my. but ping for .99 did work. 
+//why is this the case?
+
+ping 192.168.1.11 source g0/0/1.10
+
+ping 192.168.1.11 source g0/0/1.20
+
+ping 192.168.1.11 source lo0
+
+
+
+(do on both switch and router)
+
+delete vlan.dat
+
+write erase

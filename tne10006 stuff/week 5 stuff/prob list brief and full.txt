@@ -1,0 +1,23 @@
+Had problems in the following steps in lab 5:
+5a) part 4) step 1) e)  ;
+5b) part 1) step 5) c)	;
+5b) part 2) step 3) g)	;
+5b) part2)step 4) c)
+Will i be able to discuss them with you?
+
+
+(I have all the steps i followed/ commands i wrote during that lab written down in my notepad and can show them to you if you need)
+(i usually tend to give motd, hostname and no dns lookup together for router and switches, so these may not be given in the list)
+(similiarly show vlan brief, show ip int brief may also not be given in the list of commands as i write them automatically instead of copy pasting them)
+Details about each problem:
+
+5a) part 4) step 1) e) ping to 192.168.10.11 g0/0/0 failed
+but ping to 192.168.10.12 source g/0/0 Succeeded 
+
+5b) part 1) step 5) c) where to write "no interface vlan" to remove vlan 10? (should it be written in config? any specific interface port? any specific vlan config?
+
+5b) part 2) step 3) g) Can ping s3 and s4 from r1#, but couldnt ping r1 from s3# and s4#. why was this the case?
+
+5b) part2)step 4) c) i could ping 192.168.1.11 from source g0/0/1.99
+but couldn't ping it from source g0/0/1.10, source g0/0/1.20, and source lo0
+

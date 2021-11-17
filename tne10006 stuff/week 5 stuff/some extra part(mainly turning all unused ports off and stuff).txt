@@ -1,0 +1,40 @@
+conf t
+interface range giga1/0/12
+no shutdown
+end
+
+conf t
+interface range giga1/0/5
+no shutdown
+end
+conf t
+interface range giga1/0/24
+no shutdown
+end
+
+conf t
+interface range giga1/1/1-4
+shutdown
+end
+
+conf t
+interface range giga1/0/1-23
+shutdown
+end
+
+conf t
+interface range g0/0/1
+no shutdown
+end
+
+conf t
+int g1/0/12
+no switchport access vlan
+shutdown
+end
+
+conf t
+int g1/0/12
+no switchport access vlan
+shutdown
+end
