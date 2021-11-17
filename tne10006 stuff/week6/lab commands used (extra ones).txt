@@ -1,0 +1,141 @@
+//Part1) Step1:
+//Initial port stuff (for switch 3):
+
+enable
+erase startup-config
+
+delete vlan.dat
+
+
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+end
+
+conf t
+hostname Switch3
+end
+
+show ip int b
+
+show vlan b
+
+
+conf t
+interface range giga1/0/1-23
+shutdown
+end
+
+conf t
+interface range giga1/1/1-4
+shutdown
+end
+
+conf t
+interface giga1/0/5
+no shutdown
+end
+
+
+conf t
+interface giga1/0/7
+no shutdown
+end
+
+
+conf t
+interface giga1/0/11
+no shutdown
+end
+
+//Initial port stuff (for switch 4):
+
+enable
+erase startup-config
+
+delete vlan.dat
+
+
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+end
+
+conf t
+hostname Switch4
+end
+
+show ip int b
+
+show vlan b
+
+
+conf t
+interface range giga1/0/1-23
+shutdown
+end
+
+conf t
+interface range giga1/1/1-4
+shutdown
+end
+
+conf t
+interface giga1/0/5
+no shutdown
+end
+
+
+conf t
+interface giga1/0/24
+no shutdown
+end
+
+
+show vlan b
+
+show ip int b
+
+
+//Initial port stuff (for router 1):
+
+enable
+erase startup-config
+
+delete vlan.dat
+
+
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+end
+
+conf t
+hostname Router1
+end
+
+show ip int b
+
+show vlan b
+
+
+conf t
+interface g0/0/1
+no shutdown
+end
+
+
+show vlan b
+
+show ip int b
+
+(interfaces for all switches and routers match!)
+next part is direct copy pasting from the txt files for router and switches
+
+must write all the condes given in the "conf t" mode!

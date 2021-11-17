@@ -1,0 +1,40 @@
+hostname S4
+!
+no ip domain-lookup
+!
+vlan 20
+ name Engineering
+ exit
+!
+interface GigabitEthernet1/0/5
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/24
+ switchport access vlan 10
+ switchport mode access
+!
+interface vlan1
+ ip address 192.168.1.12 255.255.255.0
+!
+ip default-gateway 192.168.1.1
+!
+end
+
+//my parts:
+
+conf t
+no vlan 10
+end
+
+conf t
+int g1/0/24
+switchport mode access
+switchport access vlan 20
+end
+
+end
+
+conf t
+interface vlan1
+no shutdown
+end

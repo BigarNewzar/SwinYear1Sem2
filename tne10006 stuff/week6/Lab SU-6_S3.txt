@@ -1,0 +1,44 @@
+hostname S3
+!
+no ip domain-lookup
+!
+vlan 10
+ name R&D
+ exit
+!
+interface GigabitEthernet1/0/5
+ switchport mode access
+!
+interface GigabitEthernet1/0/11
+ switchport mode trunk
+!
+interface vlan1
+ ip address 192.168.1.11 255.255.255.0
+!
+ip default-gateway 192.168.1.1
+!
+end
+
+(also add vlan 20 to swtich to make sure switch can pass traffic from s4 to router)
+//my parts:
+
+conf t
+int g1/0/7
+switchport mode access
+switchport access vlan 10
+end
+
+conf t
+vlan 20
+ name Engineering
+ end
+
+conf t
+interface GigabitEthernet1/0/5
+ switchport mode trunk
+end
+
+conf t
+interface vlan1
+no shutdown
+end
