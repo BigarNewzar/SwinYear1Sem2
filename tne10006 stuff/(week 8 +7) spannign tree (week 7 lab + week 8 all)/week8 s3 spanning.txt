@@ -1,0 +1,131 @@
+s3 stuff:
+
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+end
+
+conf t
+int range g1/0/1-24
+shutdown
+end
+
+enable
+conf t
+int range g1/1/1-4
+shutdown
+end
+
+
+enable
+conf t
+int vlan 1
+no ip address 
+shutdown
+end
+
+enable
+conf t
+vlan 99
+name Management
+exit
+int vlan 99
+description Management
+ip address 192.168.1.11 255.255.255.0
+end
+
+enable
+conf t
+vlan 10
+name User
+end
+
+
+enable
+conf t
+int g1/0/7
+switchport mode access
+switchport access vlan 10
+no shutdown
+end
+
+enable
+conf t
+int g1/0/1
+switchport mode trunk
+no shutdown
+end
+
+enable
+conf t
+int g1/0/5
+switchport mode trunk
+no shutdown
+end
+
+
+enable
+conf t
+int g1/0/1
+switchport trunk native vlan 99
+end
+
+
+enable
+conf t
+int g1/0/5
+switchport trunk native vlan 99
+end
+
+
+
+enable
+conf t
+int range g1/0/3
+no switchport mode trunk
+no switchport trunk native vlan 99
+end
+
+
+enable
+conf t
+int g1/0/6
+no switchport mode trunk
+end
+
+
+sh spanning-tree
+
+
+enable
+conf t
+spanning-tree vlan 1,10,99 root secondary
+end
+
+
+enable
+conf t
+spanning-tree mode pvst
+end
+
+conf t
+spanning-tree mode rapid-pvst
+end
+
+show running-config | include spanning-tree mode
+
+enable
+conf t
+int g1/0/7
+spanning-tree portfast
+spanning-tree bpduguard enable
+end
+
+
+write erase
+
+
+delete vlan.dat
+

@@ -1,0 +1,109 @@
+s1 stuff:
+
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+end
+
+enable
+conf t
+int range F0/1-24
+shutdown
+end
+
+enable
+conf t
+int range g0/1-2
+shutdown
+end
+
+enable
+conf t
+int vlan 1
+no ip address 
+shutdown
+end
+
+enable
+conf t
+vlan 99
+name Management
+exit
+int vlan 99
+description Management
+ip address 192.168.1.12 255.255.255.0
+end
+
+enable
+conf t
+vlan 10
+name User
+end
+
+
+enable
+conf t
+int f0/1
+switchport mode trunk
+no shutdown
+end
+
+
+enable
+conf t
+int f0/3
+switchport mode trunk
+no shutdown
+end
+
+
+enable
+conf t
+int f0/1
+switchport trunk native vlan 99
+end
+
+
+enable
+conf t
+int f0/3
+switchport trunk native vlan 99
+end
+
+
+enable
+conf t
+int f0/2
+no switchport mode trunk
+end
+
+
+enable
+conf t
+int f0/4
+no switchport mode trunk
+end
+
+sh spanning-tree
+
+
+enable
+conf t
+spanning-tree vlan 1,10,99 root primary
+end
+
+
+conf t
+spanning-tree mode rapid-pvst
+end
+
+show running-config | include spanning-tree mode
+
+
+write erase
+
+
+delete vlan.dat
+
