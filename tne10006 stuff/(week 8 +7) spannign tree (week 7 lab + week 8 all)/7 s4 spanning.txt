@@ -1,0 +1,125 @@
+s4 stuff:
+
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+end
+
+
+conf t
+int range g1/0/1-23
+shutdown
+end
+
+enable
+conf t
+int range g1/1/1-4
+shutdown
+end
+
+enable
+conf t
+int range g1/0/3-4
+no shutdown
+end
+
+enable
+conf t
+int range g1/0/5-6
+no shutdown
+end
+
+
+enable
+conf t
+banner motd $*********
+Warning! Unauthorised access is prohibited! 
+studentID:103172423
+*********$
+end
+
+enable
+conf t
+hostname S4
+end
+
+
+enable
+conf t
+int vlan 1
+description for management ig
+ip address 192.168.1.4 255.255.255.0
+end
+
+sh vlan b
+sh ip int b
+
+enable
+conf t
+int vlan 1
+no shutdown
+end
+
+
+enable
+conf t
+int range g1/0/3-4
+switchport mode trunk
+end
+
+
+enable
+conf t
+int range g1/0/5-6
+switchport mode trunk
+end
+
+
+enable
+conf t
+int range g1/0/4
+no shutdown
+end
+
+
+enable
+conf t
+int range g1/0/6
+no shutdown
+end
+
+show spanning-tree
+
+
+enable
+conf t
+int range g1/0/24
+shutdown
+end
+
+
+show spanning-tree
+
+
+show spanning-tree
+
+
+enable
+conf t
+int range g1/0/5
+no shutdown
+end
+
+
+
+enable
+conf t
+int range g1/0/3
+no shutdown
+end
+
+
+show spanning-tree
+ 

@@ -1,0 +1,125 @@
+s1 stuff:
+
+enable
+conf t
+int range F0/5-23
+shutdown
+end
+
+enable
+conf t
+int range g0/1-2
+shutdown
+end
+
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+end
+
+enable
+conf t
+int range F0/1-4
+no shutdown
+end
+
+enable
+conf t
+banner motd $*********
+Warning! Unauthorised access is prohibited! 
+studentID:103172423
+*********$
+end
+
+enable
+conf t
+hostname S1
+end
+
+enable
+conf t
+int vlan 1
+description for management ig
+ip address 192.168.1.1 255.255.255.0
+end
+
+sh vlan b
+sh ip int b
+
+
+enable
+conf t
+int vlan 1
+no shutdown
+end
+
+enable
+conf t
+int range F0/1-23
+shutdown
+end
+
+enable
+conf t
+int range g0/1-2
+shutdown
+end
+
+enable
+conf t
+int range f0/1-4
+switchport mode trunk
+end
+
+enable
+conf t
+int range F0/2
+no shutdown
+end
+
+
+enable
+conf t
+int range F0/4
+no shutdown
+end
+
+
+show spanning-tree
+
+enable
+conf t
+int range F0/24
+shutdown
+end
+
+
+enable
+conf t
+int range F0/1
+no shutdown
+end
+
+
+enable
+conf t
+int range F0/3
+no shutdown
+end
+
+show spanning-tree
+
+
+enable
+conf t
+int range F0/1
+shutdown
+end
+
+enable
+conf t
+int range F0/1
+no shutdown
+end
