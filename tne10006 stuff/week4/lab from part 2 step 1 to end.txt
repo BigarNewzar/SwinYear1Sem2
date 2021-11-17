@@ -1,0 +1,142 @@
+enable
+conf t
+vlan 10
+name student
+vlan 20
+name Faculty
+vlan 99
+name Management
+end
+
+show vlan
+
+
+step2:for switch3 
+
+enable
+conf t
+int g1/0/7
+switchport mode access
+switchport access vlan 10
+
+switchport port-security
+end 
+
+conf t
+int vlan 99
+ip address 192.168.1.11 255.255.255.0
+end
+show vlan brief
+
+show ip int b
+
+
+
+
+for switch4: 
+
+enable
+conf t
+int g1/0/24
+switchport mode access
+switchport access vlan 10
+
+switchport port-security
+end 
+
+enable
+conf t
+int g1/0/18
+switchport mode access
+switchport access vlan 20
+
+switchport port-security
+end 
+
+conf t
+int vlan 99
+ip address 192.168.1.12 255.255.255.0
+end
+show vlan brief
+
+show ip int b
+
+part 3:
+step 1:
+
+conf t
+int range giga1/0/11-24
+switchport mode access
+switchport access vlan 10
+end
+
+conf t
+int range giga1/0/11-24
+switchport port-security
+end 
+
+show vlan brief
+
+conf t
+int range giga1/0/11
+switchport mode access
+switchport access vlan 20
+end
+
+conf t
+int range giga1/0/21
+switchport mode access
+switchport access vlan 20
+end
+
+show vlan brief
+
+conf t
+int g1/0/24
+no switchport access vlan
+end
+
+show vlan brief
+
+conf t
+int g1/0/24
+switchport access vlan 30
+exit
+
+
+show vlan brief
+
+conf t
+no vlan 30
+end
+
+show vlan brief
+
+conf t
+int g1/0/24
+no switchport access vlan
+end
+
+show vlan brief
+
+
+part4:
+step 1:
+
+conf t
+int g1/0/5
+switchport mode dynamic desirable
+
+show int trunk
+
+conf t
+int g1/0/5
+switchport mode trunk
+end
+
+show int trunk
+
+
+part 5:
+
+show flash:				//must give : after flash. or else it wont work!
