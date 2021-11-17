@@ -1,0 +1,5 @@
+enable
+conf t
+int vlan 1
+shutdown
+end

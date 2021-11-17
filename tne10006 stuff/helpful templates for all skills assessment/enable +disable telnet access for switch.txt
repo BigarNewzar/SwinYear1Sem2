@@ -1,0 +1,26 @@
+enable
+conf t
+line vty 0 15
+password <<password>>
+login
+end
+
+to test telnet from a switch:
+
+telnet <<ip of the switch u want to test that had telnet set on it>>
+
+to disable telnet:
+enable
+conf t
+line vty 0 15
+transport input none
+no login
+end
+
+to test on packet tracer:
+go to any of the pcs
+click on device
+open desktop
+tel/ssh client
+fill up with telnet, ip , username
+then give the password

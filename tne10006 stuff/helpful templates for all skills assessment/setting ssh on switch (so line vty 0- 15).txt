@@ -1,0 +1,23 @@
+enable
+conf t
+ip domain-name ccna.lab
+crypto key generate rsa general_keys modulus 1024
+
+username <<write username here and remove symbols>> privilege 15 secret <<write password here and remove symbols>>
+line vty 0 15
+transport input ssh
+login local
+end
+
+(can only test it after management vlan is set up with ip)
+ssh -l <<username set>> <<ip of that switch>>
+
+<<it will now ask for the password set for ssh on that switch>>
+
+(if on packet tracer, use this instead:)
+go to any of the pcs
+click on device
+open desktop
+tel/ssh client
+fill up with ss, ip , username
+then give the password

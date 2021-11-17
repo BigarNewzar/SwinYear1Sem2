@@ -1,0 +1,10 @@
+////////////to debug spanning-tree:
+enable
+debug spanning-tree events
+
+(after this shutdown or turn on any relevant port and see the stp in action)
+
+
+///////////to stop debug
+enable
+no debug spanning-tree events

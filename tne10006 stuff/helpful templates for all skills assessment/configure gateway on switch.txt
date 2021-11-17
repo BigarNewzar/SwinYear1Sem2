@@ -1,0 +1,6 @@
+enable
+conf t
+ip default-gateway <<ip address for router (in that network port/ subinterface/ vlan).   NO NEED TO GIVE MASK HERE!!ONly NEED IP! >>
+end
+
+(for switches, it will be gateway of managaement vlan

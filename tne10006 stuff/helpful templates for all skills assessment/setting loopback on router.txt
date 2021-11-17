@@ -1,0 +1,11 @@
+enable
+conf t
+int lo0
+description loopback test interface
+ip address <<ip address given for loopback>>  <<mask given for loopback>>
+end
+
+(example ip and mask for loopback: 209.165.200.225 255.255.255.224)
+
+to test it:
+ping <<switch ip>> source lo0

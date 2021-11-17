@@ -1,0 +1,8 @@
+enable
+conf t
+vlan <<insert vlan ids here and remove symbol>>
+name <<insert vlan name (like management or faculty, etc) here and remove symbol>>
+end
+
+sh vlan brief
+

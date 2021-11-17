@@ -1,0 +1,14 @@
+enable
+conf t
+vlan <<interface vlan id>>
+name <<interface vlan name>>
+exit
+int vlan <<interface vlan id>>
+description <<interface vlan description>>
+ip address <<ip address>> <<mask>>
+end
+
+sh vlan b
+sh ip int b
+
+

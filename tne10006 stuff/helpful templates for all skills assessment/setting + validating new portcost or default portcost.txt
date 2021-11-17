@@ -1,0 +1,20 @@
+////////To change portcost:
+enable
+conf t
+int range <<interface ids>>
+spanning-tree cost <<the value you want to set as cost>>
+end
+
+
+////////To keep portcost default:
+enable
+conf t
+int range <<interface ids>>
+default spanning-tree cost 
+end
+
+//////to validate it, type:
+enable
+sh spanning-tree
+
+(then see the cost written for interface)

@@ -1,0 +1,10 @@
+enable
+conf t
+banner motd $*********
+Warning! Unauthorised people are not allowed! 
+studentID:103172423
+*********$
+end
+
+
+(packet tracer has a bug where it wont show the banner for switches, but it will show for router. So beware of that)

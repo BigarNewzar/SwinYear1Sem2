@@ -1,0 +1,23 @@
+////////////To setup Portfast on port:
+enable
+conf t
+int range <<int id>>
+spanning-tree portfast
+end
+
+////if it says Portfast by default (ie no specific port explicitly mentioned)
+enable
+conf t
+spanning-tree portfast default
+end
+
+
+////////////To setup BPDU on port:
+enable
+conf t
+int range <<int id>>
+spanning-tree bpduguard enable
+end
+
+///////////miss didnt show or mention commands to validate this. but this should show it
+show spanning-tree

@@ -1,0 +1,5 @@
+enable
+conf t
+ip ssh time-out 60
+ip ssh authentication-retires 4
+end

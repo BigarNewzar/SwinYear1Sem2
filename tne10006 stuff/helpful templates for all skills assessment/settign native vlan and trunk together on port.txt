@@ -1,0 +1,7 @@
+//////////to set the switch as both trunk and also with a different native vlan:
+
+enable
+conf t
+int range <<interface ID>>
+switchport trunk native vlan <<ID of the vlan you want to be native on those ports>>
+end

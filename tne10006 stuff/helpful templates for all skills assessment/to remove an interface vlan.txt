@@ -1,0 +1,4 @@
+enable
+conf t
+no interface vlan <<vlan id>>
+end

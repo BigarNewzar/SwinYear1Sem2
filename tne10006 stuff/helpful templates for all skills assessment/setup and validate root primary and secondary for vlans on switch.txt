@@ -1,0 +1,34 @@
+////////////to set switch to primary for certain vlans:
+enable
+conf t
+spanning-tree vlan <<ids you want this switch to be primary on>> root primary
+end
+
+
+(keep in mind primary means => 24576 (this will be seen in show run))
+
+
+
+////////////to set switch to secondary for certain vlans:
+enable
+conf t
+spanning-tree vlan <<ids you want this switch to be primary on>> root secondary
+end
+
+
+(keep in mind secondary means => 28673 (this will be seen in show run))
+
+
+eg.
+enable
+conf t
+spanning-tree vlan 1,10,99 root secondary
+end
+
+(to set it primary for vlans 1,10 and 99)
+
+/////////////////to validate it:
+enable
+show run
+
+(then see if the desired number is being shown there or not in the port)

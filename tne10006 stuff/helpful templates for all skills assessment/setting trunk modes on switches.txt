@@ -1,0 +1,17 @@
+enable
+conf t
+int <<<<insert ports that will be in trunk>>>>
+switchport mode trunk
+end
+
+(this wont work in packet reacer! instead follow the instruction given in 802.1Q file)
+
+to test it:
+show int trunk
+
+to remove it:
+enable
+conf t
+int <<<<insert ports that will be in trunk>>>>
+no switchport mode trunk
+end

@@ -1,0 +1,57 @@
+//////for enabling portsecurity 
+enable
+conf t
+int range <<range of interfaces that will have that port security>>
+switchport port-security
+
+
+(if only said port security then end it here. if it said a certain security then scroll down and find the specified command)
+
+switchport port-security maximum <<max no of mac allowed to be set on that switch>>
+
+if max mac address breached, then disable interface + inform admin via SNMP:
+switchport port-security violation shutdown
+
+if max mac address breached, then drop packets with unknown source address + inform admin via SNMP:
+switchport port-security violation restrict
+
+if max mac address breached, then behave like restrict but no admin informed via SNMP!:
+switchport port-security violation protect
+
+activate static mode switchport security
+port-security mac-address static
+
+activate sticky mode switchport security (once mac learnt on port, its saved and not removed)
+port-security mac-address sticky
+
+(for packet tracer, we will need to add switchport word at start for both static and sticky!)
+switchport port-security mac-address sticky
+or
+switchport port-security mac-address static
+
+(will need to ping between pcs for testing this!)
+
+
+
+to disable it, type " no " at the start and repeat the line.
+
+to allocate specific mac address to that port: (still in that port's interface just like for the other above commands)
+switchport port-security mac-address <<mac address>>
+
+to test mac adfress table:
+show mac address-table
+
+to test port security for switch overall:
+show port-security
+
+to test port security for specific port/interface on switch:
+show port-security int <<interface/port id>>
+
+to test which port attached to secure ports on switch and status of secure ports
+show port-security address
+
+
+
+
+
+

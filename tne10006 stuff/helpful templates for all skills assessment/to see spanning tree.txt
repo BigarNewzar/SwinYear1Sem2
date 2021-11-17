@@ -1,0 +1,7 @@
+To see spanning tree
+
+enable
+sh spanning-tree
+
+(keep in mind primary means => 24576 (this will be seen in show run))
+(keep in mind secondary means => 28673 (this will be seen in show run))

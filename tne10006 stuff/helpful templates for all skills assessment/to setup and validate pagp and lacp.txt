@@ -1,0 +1,44 @@
+To set up Lacp:
+(if question dont say anything about "native vlan", skip that step)
+(if question doesnt say pagp or lacp, do lacp!)
+
+/////////for 1st switch:
+enable
+conf t
+int range <<interface ID>>
+switchport mode trunk
+
+switchport trunk native vlan <<new vlan that will be native on this channel>>
+//////skip this step unless question explicitly mentions to set a native vlan on that channel!
+
+channel-group <<channel group id/ no>> mode active
+no shutdown
+
+
+///////////////for 2nd connected switch:
+enable
+conf t
+int range <<interface ID>>
+switchport mode trunk
+
+switchport trunk native vlan <<new vlan that will be native on this channel>>
+//////skip this step unless question explicitly mentions to set a native vlan on that channel!
+
+channel-group <<channel group id/ no>> mode passive
+no shutdown
+
+
+/////////////for pagp, just change "active" "passive" into "desirable" "auto"  
+(see if spelling,uing ok or not)
+
+
+{for lacp, possible combination: active with active,  active with passive}
+{for pagp, possible combination: desirable with desirable,  desirable with auto}
+(never use on and on!!!!!! then although connection sets up, it doesnt use lacp or pagp!!!)
+
+////////////to validate pagp and lacp
+
+enable
+sh etherchannel summary
+
+(see if the channel is there or not, SU flag and P flags and also the mode is pagp or lacp respectively)

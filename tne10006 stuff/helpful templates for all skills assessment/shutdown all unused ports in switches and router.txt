@@ -1,0 +1,8 @@
+enable
+conf t
+int range <<insert range of ethernet ports that will be shutdown>>
+shutdown
+end
+
+
+(by default router will have all ports shutdown, so make sure to turn needed ones on using "   no shutdown   "   !)

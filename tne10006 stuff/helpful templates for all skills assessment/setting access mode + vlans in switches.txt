@@ -1,0 +1,9 @@
+enable
+conf t
+int <<<<insert ports that will have vlans>>>>
+switchport mode access
+switchport access vlan <<insert vlan ids here and remove symbol>>
+end
+
+
+///must say about access to enforce it, or else it will be wrong!!!

@@ -1,0 +1,36 @@
+enable
+conf t
+int <<the main interface that will be subdevided>>
+no shutdown
+end
+
+enable
+conf t
+int <<the main interface that will be subdevided>>.<<subinterface vlan id>>
+description <<desciption/ purpose of that subinterface>>
+encapsulation dot1Q <<vlan ID>>
+ip address <<ip address>> <<mask>>
+end
+
+(if in packet tracer, must set the next part on switch as well!)
+(must do for all lines passing multiple vlans up to router in router on stick. even its for s4 where s4 connected to s3 and s3 connect to router)
+enable 
+conf t
+int <<the port in switch connected to the router>>
+switchport trunk encapsulation dot1q
+switchport mode trunk
+end
+
+to test it:
+sh ip route
+
+sh ip int b
+sh run
+
+///in show run, check the dot1q part ok or not and ip ok or not for the ports
+
+ping <<ip of the switch (ie its ip set on management ip)>> source <<the subinterface port>>
+
+(for packet tracer, use this instead:) (from switch side )
+ping <<ip of the subinterface port>>
+show int trunk

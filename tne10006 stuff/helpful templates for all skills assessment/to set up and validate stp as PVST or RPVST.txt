@@ -1,0 +1,19 @@
+/////////////to set STP mode on switch to be PVST+:
+
+enable
+conf t
+spanning-tree mode PVST
+end
+
+
+/////////////to set STP mode on switch to be Rapid PVST+:
+
+enable
+conf t
+spanning-tree mode rapid-pvst
+end
+
+///////////to validate the protocols:
+enable
+conf t
+show running-config | include spanning-tree mode
