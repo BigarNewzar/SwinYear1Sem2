@@ -1,0 +1,94 @@
+db.newCompany.update({ _id: ObjectId( "6177c86fd5d09d331b8a6198"){
+	 Branch.ID:"BRNCH40002"} Employee.ID:"EMPLE24598" },
+    {
+     $push: { 
+			Name:"Bola Ahmed" 
+		} 
+	 }    
+	 }
+	 )
+	
+	ID
+:
+
+
+
+////////////////////////////////////
+db.newCompany.updateOne(   { _id: ObjectId( "6185bfdf859dfb5e68d78bd4")},
+   {     $set: { Branch:{"Employee.Name" :"Bola Ahmed" }}
+   } )
+
+6185bfdf859dfb5e68d78bd4
+
+//////////////////////////
+
+(since the select uery came wierd, i also tested for update as well by altering all the datas in the employee and then updated entire document back to original. still it took 0 miliseconds in mongodb)
+(in mariadb, this had to be done by removing datas given in the tables employee, department, position and then adding the actual datas back to them, which took time..........)
+
+[had to recreate the tables, so will need to fix the ids for both commands in mongodb here]
+[also will need to retake the screenshots for all mongo stuff as id has now changed!!!]
+
+//////
+
+
+
+db.newCompany.update(   { _id: ObjectId( "6185bfdf859dfb5e68d78bd4")},
+   {     $set: { Branch:[{"ID" :"BRNCH40002","Name":"Dhaka Branch","Comment":"Exclusive Branch in Dhaka","Employee":[{"ID": "EMPLE24598","Name": "Bokul Ahmed","Gender": "F","Date_of_birth" : "1995-01-02","Address":{"address": "Road 40, Gulshan","city":"Dhaka","postcode":"2557"},
+"Phone":"8801933246924","Salary":"60000","Position":"Normal", "Comment":"Clumsy Employee"}, {"ID": "EMPLY44556","Name": "KarimKombol","Gender": "M","Date_of_birth" : "1990-10-24","Address":{"address": "Road 45, Gulshan","city":"Dhaka","postcode":"2356"},
+"Phone":"8801731246924","Salary":"80000","Position":"Manager", "Comment":"good old employee"},{"ID": "QSART45692","Name": "KashemUddin","Gender": "M","Date_of_birth" : "1995-05-05","Address":{"address": "Road 8, Rampura","city":"Dhaka","postcode":"2400"},
+"Phone":"8801459272298","Salary":"90000","Position":"Technician", "Comment":"old techy employee"}]
+},{"ID" :"BRNCH20003","Name":"Sylhet Branch","Comment":"Exclusive Branch in Sylhet","Employee":[{"ID": "ETYLE24594","Name": "MoklesMiah","Gender": "M","Date_of_birth" : "2000-10-20","Address":{"address": "Road 45, Subidbazar","city":"Sylhet","postcode":"3156"},
+"Phone":"8801731296924","Salary":"40000","Position":"Normal",  "Comment":"Lazy  employee"},{"ID": "QWRTY11111","Name": "RaimaKarim","Gender": "F","Date_of_birth" : "2001-03-04","Address":{"address": "Road 4, Modinamarket","city":"Sylhet","postcode":"4156"},
+"Phone":"8801455672298","Salary":"80000","Position":"Manager",  "Comment":"Diligent employee"}]
+}]}
+   } )
+
+///////////////////////////////
+db.newCompany.explain("executionStats").update(   { _id: ObjectId( "6185bfdf859dfb5e68d78bd4")},
+   {     $set: { Branch:[{"ID" :"BRNCH40002","Name":"Dhaka Branch","Comment":"Exclusive Branch in Dhaka","Employee":[{"ID": "EMPLE24598","Name": "Bokul Ahmed","Gender": "F","Date_of_birth" : "1995-01-02","Address":{"address": "Road 40, Gulshan","city":"Dhaka","postcode":"2557"},
+"Phone":"8801933246924","Salary":"60000","Position":"Normal", "Comment":"Clumsy Employee"}, {"ID": "EMPLY44556","Name": "KarimKombol","Gender": "M","Date_of_birth" : "1990-10-24","Address":{"address": "Road 45, Gulshan","city":"Dhaka","postcode":"2356"},
+"Phone":"8801731246924","Salary":"80000","Position":"Manager", "Comment":"good old employee"},{"ID": "QSART45692","Name": "KashemUddin","Gender": "M","Date_of_birth" : "1995-05-05","Address":{"address": "Road 8, Rampura","city":"Dhaka","postcode":"2400"},
+"Phone":"8801459272298","Salary":"90000","Position":"Technician", "Comment":"old techy employee"}]
+},{"ID" :"BRNCH20003","Name":"Sylhet Branch","Comment":"Exclusive Branch in Sylhet","Employee":[{"ID": "ETYLE24594","Name": "MoklesMiah","Gender": "M","Date_of_birth" : "2000-10-20","Address":{"address": "Road 45, Subidbazar","city":"Sylhet","postcode":"3156"},
+"Phone":"8801731296924","Salary":"40000","Position":"Normal",  "Comment":"Lazy  employee"},{"ID": "QWRTY11111","Name": "RaimaKarim","Gender": "F","Date_of_birth" : "2001-03-04","Address":{"address": "Road 4, Modinamarket","city":"Sylhet","postcode":"4156"},
+"Phone":"8801455672298","Salary":"80000","Position":"Manager",  "Comment":"Diligent employee"}]
+}]}
+   } )
+
+////////////////////
+
+
+
+
+
+
+
+[{"ID" :"BRNCH40002","Name":"Dhaka Branch","Comment":"Exclusive Branch in Dhaka","Employee":[{"ID": "EMPLE24598","Name": "Bokul Ahmed","Gender": "F","Date_of_birth" : "1995-01-02","Address":{"address": "Road 40, Gulshan","city":"Dhaka","postcode":"2557"},
+"Phone":"8801933246924","Salary":"60000","Position":"Normal", "Comment":"Clumsy Employee"}, {"ID": "EMPLY44556","Name": "KarimKombol","Gender": "M","Date_of_birth" : "1990-10-24","Address":{"address": "Road 45, Gulshan","city":"Dhaka","postcode":"2356"},
+"Phone":"8801731246924","Salary":"80000","Position":"Manager", "Comment":"good old employee"},{"ID": "QSART45692","Name": "KashemUddin","Gender": "M","Date_of_birth" : "1995-05-05","Address":{"address": "Road 8, Rampura","city":"Dhaka","postcode":"2400"},
+"Phone":"8801459272298","Salary":"90000","Position":"Technician", "Comment":"old techy employee"}]
+},{"ID" :"BRNCH20003","Name":"Sylhet Branch","Comment":"Exclusive Branch in Sylhet","Employee":[{"ID": "ETYLE24594","Name": "MoklesMiah","Gender": "M","Date_of_birth" : "2000-10-20","Address":{"address": "Road 45, Subidbazar","city":"Sylhet","postcode":"3156"},
+"Phone":"8801731296924","Salary":"40000","Position":"Normal",  "Comment":"Lazy  employee"},{"ID": "QWRTY11111","Name": "RaimaKarim","Gender": "F","Date_of_birth" : "2001-03-04","Address":{"address": "Road 4, Modinamarket","city":"Sylhet","postcode":"4156"},
+"Phone":"8801455672298","Salary":"80000","Position":"Manager",  "Comment":"Diligent employee"}]
+}]
+
+"EMPLE24598"
+	Employee.ID=....
+	
+	
+	db.posts.update({ _id: ObjectId( "510a3c5382d395b70b000034" ) },
+    {
+     $push: { comments: { "_id" : ObjectId( "..." ),
+     "authorId" : ObjectId( "..." ),
+     "content" : "",
+     "createdAt" : Date(...) } }
+    })
+	
+	_id
+:
+6177c86fd5d09d331b8a6198
+
+[{"Branch":[{"ID" :"BRNCH40002","Name":"Dhaka Branch","Comment":"Exclusive Branch in Dhaka"
+
+"Branch": [{
+        "ID": "BRNCH40002",
