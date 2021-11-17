@@ -1,0 +1,41 @@
+{
+	"books": {
+		"book": [{
+				"name": "Fifty shades of grey",
+				"writer": "E. L. James",
+				"month": "May",
+				"year": "2016",
+				"outcome": "Did not like it very much"
+			},
+			{
+				"name": "The grass is singing",
+				"writer": "Doris Lessing",
+				"month": "June",
+				"year": "2016",
+				"outcome": "enjoyed it quite a bit"
+			},
+			{
+				"name": "A short history of nearly everything",
+				"writer": "Bill Bryson",
+				"month": "July",
+				"year": "2016",
+				"outcome": "very informative"
+			},
+			{
+				"name": "JSON in 24 hours",
+				"writer": "Peter Settler",
+				"month": "NaN",
+				"year": "NaN",
+				"outcome": "NaN"
+			},
+			{
+				"name": "Miss Smilla’s feeling for snow",
+				"writer": "Peter Hoeg",
+				"month": "NaN",
+				"year": "NaN",
+				"outcome": "NaN"
+			}
+		]
+
+	}
+}

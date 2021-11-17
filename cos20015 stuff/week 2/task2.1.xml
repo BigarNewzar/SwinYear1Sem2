@@ -1,0 +1,37 @@
+<books>
+	<book>
+		<name>Fifty shades of grey</name>
+		<writer>E. L. James</writer>
+		<month>May</month>
+		<year>2016</year>
+		<outcome>Did not like it very much</outcome>
+	</book>
+	<book>
+		<name>The grass is singing</name>
+		<writer>Doris Lessing</writer>
+		<month>June</month>
+		<year>2016</year>
+		<outcome>enjoyed it quite a bit</outcome>
+	</book>
+	<book>
+		<name>A short history of nearly everything</name>
+		<writer>Bill Bryson</writer>
+		<month>July</month>
+		<year>2016</year>
+		<outcome>very informative</outcome>
+	</book>
+	<book>
+		<name>JSON in 24 hours</name>
+		<writer>Peter Settler</writer>
+		<month>NaN</month>
+		<year>NaN</year>
+		<outcome>NaN</outcome>
+	</book>
+	<book>
+		<name>Miss Smilla’s feeling for snow</name>
+		<writer>Peter Hoeg</writer>
+		<month>NaN</month>
+		<year>NaN</year>
+		<outcome>NaN</outcome>
+	</book>
+</books>
