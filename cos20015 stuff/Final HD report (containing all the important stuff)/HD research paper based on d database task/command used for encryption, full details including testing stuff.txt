@@ -1,0 +1,11 @@
+Use test;
+drop table t;
+create table t 
+(name_stuff blob not null);
+
+INSERT INTO t (name_stuff) VALUES (AES_ENCRYPT('Bigar',SHA2('password',512)));
+select *
+from t;
+SELECT name_stuff,
+AES_DECRYPT(name_stuff, SHA2('password',512) )
+FROM t;

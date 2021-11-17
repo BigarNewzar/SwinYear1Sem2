@@ -1,0 +1,316 @@
+[
+	{"Branch":
+		[
+		{
+	"ID" :"BRNCH40002",
+	"Name":"Dhaka Branch",
+	"Comment":"Exclusive Branch in Dhaka",
+	"Employee":
+		[
+		{
+			"ID": "EMPLE24598",
+			"Name": "Bokul Ahmed",
+			"Gender": "F",
+			"Date_of_birth" : "1995-01-02",
+			"Address":
+				{
+					"address": "Road 40, Gulshan",
+					"city":"Dhaka",
+					"postcode":"2557"
+				},
+
+			"Phone":"8801933246924",
+			"Salary":"60000",
+			"Position":"Normal", 
+			"Comment":"Clumsy Employee"
+		}, 
+		{
+			"ID": "EMPLY44556",
+			"Name": "Karim	Kombol",
+			"Gender": "M",
+			"Date_of_birth" : "1990-10-24",
+			"Address":
+				{
+					"address": "Road 45, Gulshan",
+					"city":"Dhaka",
+					"postcode":"2356"
+				},
+
+			"Phone":"8801731246924",
+			"Salary":"80000",
+			"Position":"Manager", 
+			"Comment":"good old employee"
+		},
+		
+		
+		{
+			"ID": "QSART45692",
+			"Name": "Kashem	Uddin",
+			"Gender": "M",
+			"Date_of_birth" : "1995-05-05",
+			"Address":
+				{
+					"address": "Road 8, Rampura",
+					"city":"Dhaka",
+					"postcode":"2400"
+				},
+
+			"Phone":"8801459272298",
+			"Salary":"90000",
+			"Position":"Technician", 
+			"Comment":"old techy employee"
+		}
+		]
+
+	},
+	{
+	"ID" :"BRNCH20003",
+	"Name":"Sylhet Branch",
+	"Comment":"Exclusive Branch in Sylhet",
+	"Employee":
+		[{
+			"ID": "ETYLE24594",
+			"Name": "Mokles	Miah",
+			"Gender": "M",
+			"Date_of_birth" : "2000-10-20",
+			"Address":
+				{
+					"address": "Road 45, Subidbazar",
+					"city":"Sylhet",
+					"postcode":"3156"
+				},
+
+			"Phone":"8801731296924",
+			"Salary":"40000",
+			"Position":"Normal",  
+			"Comment":"Lazy  employee"
+		},
+		{
+			"ID": "QWRTY11111",
+			"Name": "Raima	Karim",
+			"Gender": "F",
+			"Date_of_birth" : "2001-03-04",
+			"Address":
+				{
+					"address": "Road 4, Modinamarket",
+					"city":"Sylhet",
+					"postcode":"4156"
+				},
+
+			"Phone":"8801455672298",
+			"Salary":"80000",
+			"Position":"Manager",  
+			"Comment":"Diligent employee"
+		}]
+
+	}
+		
+		]
+	},
+	{
+	"Subsidiary Company":
+		[
+		{
+	"ID": "SCOMP00001",
+	"Name":"Office Products",
+	"City":"Dhaka",
+	"Phone":"8801972448031",
+	"Product":
+		[{
+			"ID": "PHGTA00144",
+			"Name": "Office table",
+			"Type": "table",
+			"Material": "wood",
+			"Price": "6000",
+			"Comment": "good office table made of wood",
+			"Purchase_Date":"2019-02-16",
+			"Stock":"40"
+		},
+		{
+			"ID": "PRDTA00103",
+			"Name": "Office chair",
+			"Type": "chair",
+			"Material": "wood",
+			"Price": "4000",
+			"Comment": "good office chair made of wood",
+			"Purchase_Date":"2020-12-12",
+			"Stock":"70"
+		}]
+
+	},
+	{
+	"ID": "SCOMP00051",
+	"Name":"RFL",
+	"City":"Dhaka",
+	"Phone":"8801745336711",
+	"Product":
+		{
+			"ID": "PRDTA00140",
+			"Name": "RFL sofa",
+			"Type": "sofa",
+			"Material": "plastic",
+			"Price": "500",
+			"Comment": "good RFL chair made of plastic",
+			"Purchase_Date":"2018-10-12",
+			"Stock":"90"
+		}
+
+	},
+	{
+	"ID": "SCOMP00444",
+	"Name":"Stylish Products",
+	"City":"Dhaka",
+	"Phone":"8801973448031",
+	"Product":
+		{
+			
+			"ID": "PRDTG00210",
+			"Name": "stylish chair",
+			"Type": "chair",
+			"Material": "wood",
+			"Price": "10000",
+			"Comment": "good chair made of wood	",
+			"Purchase_Date":"2020-12-15",
+			"Stock":"50"
+		}
+
+	},
+	{
+	"ID": "SCOMP05001",
+	"Name":"Glassify",
+	"City":"Sylhet",
+	"Phone":"8801745336700",
+	"Product":
+		{
+			"ID": "PROOA00103",
+			"Name": "clear wardrobe",
+			"Type": "wardrobe",
+			"Material": "glass",
+			"Price": "8000",
+			"Comment": "good wardrobe made of glass	",
+			"Purchase_Date":"2020-10-10",
+			"Stock":"90"
+		}
+
+	}
+		]
+	},
+
+	{
+	"Customer Details":
+	[
+	{
+		"ID": "ADBCA00554",
+		"Name": "Kawsar	Hossain",
+		"Gender": "M",
+		"Address": "Road 10, Bonani",
+		"City": "Dhaka",
+		"Postcode": "4156",
+		"Phone":"8801796958971"
+		
+	},
+	{
+		"ID": "ALBCA11020",
+		"Name": "Anne	Stuward",
+		"Gender": "F",
+		"Address": "Road 2, Rampura",
+		"City": "Dhaka",
+		"Postcode": "6915",
+		"Phone":"8801692433190"
+		
+	},
+	{
+		"ID": "FABCA09548",
+		"Name": "Robert	Brown",
+		"Gender": "M",
+		"Address": "Road 10, Modina",
+		"City": "Sylhet",
+		"Postcode": "3114",
+		"Phone":"8801892884308",
+		"Order":
+		
+		{
+		"Order ID" :"ORDRE44990",
+		"Product ID" :"PROOA00103",
+		"Product name" :"clear wardrobe",
+		"Ordered product stock" : "10",
+		"Order product cost" : "80000",
+		"Employee ID" : "ETYLE24594",
+		"Employee name" :"Mokles	Miah",
+		"Order date" : "2021-06-26",
+		"Shipment_ID":"SHPIN40705",
+		"Shipdate" : "2021-06-28",
+		"Order comment" :"good old customer back"
+		}
+		
+	
+	},
+	
+	{
+		"ID": "GABCA07324",
+		"Name": "Salma	Begum",
+		"Gender": "F",
+		"Address": "Road 21, Gulshan",
+		"City": "Dhaka",
+		"Postcode": "2114",
+		"Phone":"8801592457044",
+		"Order":
+		
+		{
+		"Order ID" :"ORDRE49100",
+		"Product ID" :"PRDTA00103",
+		"Product name" :"Office chair",
+		"Ordered product stock" : "10",
+		"Order product cost" : "40000",
+		"Employee ID" : "EMPLE24598",
+		"Employee name" :"Bokul	Ahmed",
+		"Order date" : "2021-07-07",
+		"Shipment_ID":"SHPIN55555",
+		"Shipdate" : "2021-07-09",
+		"Order comment" :"customer wants to track this"
+		}
+		
+	
+	},
+	{
+		"ID": "HABCA00024",
+		"Name": "Sultan	Ahmed",
+		"Gender": "M",
+		"Address": "Road 2, Gulshana",
+		"City": "Dhaka",
+		"Postcode": "2141",
+		"Phone":"8801792458030",
+		"Order":
+		[
+		{
+		"Order ID" :"ORDRE45679",
+		"Product ID" :"PHGTA00144",
+		"Product name" :"Office table",
+		"Ordered product stock" : "1",
+		"Order product cost" : "6000",
+		"Employee ID" : "EMPLE24598",
+		"Employee name" :"Bokul	Ahmed",
+		"Order date" : "2021-05-24",
+		"Shipment_ID":"SHPIN30078",
+		"Shipdate" : "2021-05-26",
+		"Order comment" :"customer felt weird"
+		},
+		{
+		"Order ID" :"ORDRE45680",
+		"Product ID" :"PRDTA00103",
+		"Product name" :"Office chair",
+		"Ordered product stock" : "1",
+		"Order product cost" : "4000",
+		"Employee ID" : "EMPLE24598",
+		"Employee name" :"Bokul	Ahmed",
+		"Order date" : "2021-05-24",
+		"Shipment_ID":"SHPIN30079",
+		"Shipdate" : "2021-05-26",
+		"Order comment" :"customer felt weird"
+		}
+		]
+	
+	}
+	]
+	}
+]
