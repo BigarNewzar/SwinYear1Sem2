@@ -1,0 +1,38 @@
+HD level project:
+
+Intro:
+basic information and necessity of database in general
++2 types of databases availabe, 1 is mysql (relational database)
+other is NoSQL (relational and not relational databse)
+
+Mysql: (defn, what is basically is and where it commonly used (eg for structured data and.....tables) and for which company (if any),basic benefits and drawbacks)
+
+NoSql: (defn, what is basically is and where it commonly used (eg for what type of data or table) and for which company (if any),basic benefits and drawbacks)
+
+Compare the following points among both of them:
+    data structures, normalisation aspect, retrieval (how easy is it to recombine information to find new knowledge in the data?).
+	
+	(say how it is maintianed in mysql, + code to back it up)
+	(say how it is maintianed in nosql, + code to back it up)
+	
+	
+	
+    concurrency model/isolation levels.
+	(say how it is maintianed in mysql, + code to back it up)
+	(say how it is maintianed in nosql, + code to back it up)
+	
+	
+    speed of access; updates (including inserts) and queries.
+	(say how it is maintianed in mysql, + code to back it up)
+	(say how it is maintianed in nosql, + code to back it up)
+	
+	
+    database security (demonstrate how you implement safeguards, do not list security issues and safeguards from the internet).
+	(say how it is maintianed in mysql, + code to back it up)
+	(say how it is maintianed in nosql, + code to back it up)
+
+Conclusion:
+Overall, whether one should use Mysql or NOsql to store data depends on:
+ a)what sort of data they are dealing with,
+	.......(the other differences between mysql and nosql)
+

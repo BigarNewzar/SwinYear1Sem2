@@ -1,0 +1,269 @@
+SOme common stuff to keep in mind syntax wise:
+
+week1:
+	For regex:
+	grep -E -o '[A-Z][0-9][A-Z] ?[0-9][A-Z][0-9]' CanPostcodes.txt
+	grep -E -o '[S][a-z]+, [^S]+' People.txt
+	(you will need to give the regex part in quote and then space and file name)
+
+	For piping the regex output:
+	grep -E -o '[S][a-z]+, [^S]+' People.txt | tee surname_output.txt
+	(just use the | symbol and tee and space and then destination file name)
+
+	For adding line number to output:
+	grep -E -o -n '[S][a-z]+, [^S]+' People.txt
+	(put a -n after -o to get line number beside output)
+
+
+	For getting count /(no of outputs):
+	grep -E -o -c '[S][a-z]+, [^S]+' People.txt
+	(put a -c after -o to get no of results or count)
+
+	Follow the cheat sheet for help and also only regex checker!
+
+week2:
+	XML structure demo:
+	<orders>
+		<year>2016</year>
+		<order type= "retail">
+			<customer>John Lee</customer>
+			<item>
+				<name> tablet</name>
+				<quantity>24</quantity>
+			</item>
+			<delivery>2016-10-10</delivery>
+		</order>
+		.....(other order tables for year 2016)
+	</orders>
+
+	To get the value given in a field:
+	books/book/name/text()
+	(use text() to get it to output a value in a field)
+
+	Eg FLWOR syntax(1):
+	for $b in books/book
+	where $b/year = "NaN"
+	return ($b/name/text(), $b/writer/text())
+
+	Eg FLWOR syntax(2):
+	for $o in doc("orderlist.xml")/ordes/
+	let $i = $o/item
+	let $total = sum(  $i/quantity  * $i/price )
+	return
+		<purchase>
+			<name>($o/customer/text())</name>
+			<total>($total)</total>
+		</purchase>
+
+
+	(using 'for' we assign a variable to a path and thus use it to reduce path line)(but for basically means a loop in the slides!)
+	(we usually use 'let' to assign values to smth)
+	('where' is used for restriction)
+	('order by' is used for sort)
+	('return' is what will be outputted and in what format (like what after what))
+
+	to make XML to JSON, convert just close them using bracket instead of tag system. also JSON doesnt have attribute, just store the attribute as a keypair system
+
+	for JSON query, the '/' will change into .
+	Also return type may change depending on whether you want output in a certain format or not
+
+Week3:
+	Crow notation or uml or what? becareful and check notes for syntax
+	Also becareful of primary and foreign keys and 1:1 or 1:M or M:M (never keep these, always make a new weak entity between them and do relation between the new weak table and the other two tables)
+
+	Best to keep same linking field names
+
+	Combination of keys may be needed to uniquely define stuff in a table!
+
+	Varchar is always better than char as it dynamically changes storage space to fit the text, so no wastage
+
+	See 3.1.5 for best, proper symbol notation Entity relation diagram (dont know if its chens or crows so gogole that part)
+
+
+week4:
+	Make it 1NF,2NF and 3NF following things written in slides
+	(for 1NF basically remove any repeating row data (like 2 different subjact data in same row) or repeating column (like comment1 comment 2 comment3))
+	(for 2NF, ensure it is 1NF and then make sure no partial dependency, ie composite key for table or primary key can be used to call all attribute and stuff (basically all the rows) uniquely)
+	(for 3NF, remove transitive dependency, like if student table has grade and marks, we can remove the mark as grade can be used to unique identify it as well and thus it is transitive, same case for postcode and state/area/city in customer/employee details, etc )
+	
+Week5:
+	(testing in mysql workbench!)
+	see DDL format from slides
+	beware of datatypes (always use varchar instead of char)
+	(int or smallint or big int)
+	(if alphabet in id, make it varchar type)
+	(else make id int)
+	(float, decimal, real)
+	(for date, or varchar or char, input data in ' ' marks. for int or decimal, etc no need to do that)
+	
+	
+	
+	(null) (always use is or is not with null in queries, never = sign! )
+	
+	example of a ddl:
+					CREATE TABLE Grade
+				(
+				stud_id varchar(9) not null,
+				subj_code varchar(8) not null,
+				semester int(1) not null,
+				year int(4) not null,
+				grade varchar(4),
+
+				PRIMARY KEY(stud_id, subj_code, semester, year),
+				FOREIGN KEY(stud_id) REFERENCES Student(stud_id),
+				FOREIGN KEY(subj_code) REFERENCES Subject(subj_code)
+				);
+
+	for primary key foreignkey thing, make sure to keep things in order
+	also in primary key, we will also tell foreign keys
+	and then we will say foriegn key is this references from table this with attribute name this
+	
+	example of check contraint and altering	:		
+				Alter table Student
+				ADD COLUMN gender char not null
+				CHECK (gender IN ('M','F'));
+				
+				Alter table Subj_Enrolment
+				Drop comment
+				;
+
+	check constraint(input between what and what) and default values
+	altering (adding column vs adding contraints (remember mysql puts s in contraints (google this fact just to be sure))) and dropping tables
+	
+	ON delte no action, set null or cascade?
+	
+week6:
+	Selection, projection, cartesian prodcut, union, set different, intersection
+	(see the examples in the slides, no task was done in labs here)
+	
+	Complex operations and temporary sets
+	result <---- operation
+	
+	(do innner bracket considitions first, then move out of the brackets)
+	
+	Join operations, Equijoin, natural join, outer join, semijoin
+	
+	Agreegate options (SUM, Count, Min, Max, AVG)
+
+
+week7:
+	(check syntax by writting it in the work bench you have open)
+	querying stuff
+	
+			SELECT * 
+		FROM customers;
+		
+	to get all columns, use * symbol after select
+	Use select to specify the column names to be displayed
+	Use "from" to allocate table name
+	Use "where" for restriction
+	use "order by" to determine order, for descending type desc after that 
+					
+					SELECT *
+				FROM customers
+				where CustState = 'WA' or CustState = 'OR' ;
+				
+				SELECT Count(CustomerID) as Customers, CustState
+				FROM customers
+				Group by CustState;
+				
+	keep in mind about alias and concating
+
+	
+	For all aggeegate, must use "Group by" and column name. 
+	or else it will agreegate all comumns into one according to condition given in aggregate
+	to add restriction in aggregate, use "having"
+	
+	Must use "is"  and "not is" for null
+	
+	Use Joins for multitable datas
+	(see the one written best on the slide 7 (b) slide 5)
+	
+	inner vs outer left vs outer right ( see slide 7(b) slide 8,9,10)
+	(also see 7.1.4)
+				SELECT CustFirstName, CustLastName, OrderDate 
+			FROM Customers c Left Outer Join Orders o 
+			On o.CustomerID = c.CustomerID 
+			ORDER BY CustLastName, CustFirstName, OrderDate DESC;
+			
+		(the bottom example is very, very important as it restrcits to last order date of the person and only displays that for each customer!)	
+			use SalesOrdersExample2;
+
+			SELECT c.CustomerID, CustFirstName, CustLastName, OrderDate
+			FROM Customers c Left Outer JOIN Orders o
+			ON o.CustomerID=c.CustomerID    
+			where o.OrderDate = 
+				(
+					select MAX(o.OrderDate)
+					from orders o
+				)
+			ORDER BY CustLastName, CustFirstName, OrderDate desc ;
+
+
+	
+	
+	
+	
+	null may not be shown even if proper outer is used, if restriction removes the null option row completely! (see slide 7(b) slide 11)
+	
+	View, its creation syntax and its benefits (see the slides)
+	
+				Create View CustOrderItems as 
+			Select CustFirstName, CustLastName, OrderNumber, OrderDate, ShipDate, SUM(QuantityOrdered*QuotedPrice ) as ItemTotal 
+			From Customers c Natural Join Orders o Natural Join order_details d 
+			group by OrderNumber;
+			
+			(added group part to ensure “item total” calculated total item cost for that order) 
+		
+	
+Week 8,
+	(test in mysql workbench)
+	Commit and rollback
+	turning off autocommit
+	inserting new tuple 
+	
+			INSERT INTO Purchase (purchaseID, custName, orderedDate, shipDate)
+			VALUES (111, 'tester', ‘2012-10-2’, ‘2012-11-6’);
+
+			INSERT INTO PurchasedItem (purchaseID, itemNo, productName, orderedQty,
+			quotedPrice)
+			VALUES (111, 1, 'Lawn mower', 3, 105.30);
+			commit;
+
+	
+	(insert into parent first, and then child! Or else there will be error!)
+	
+	problems in autoincrement inseting and querying ( see slide 8 slide 6)
+	(the last ID thingy)
+	
+		INSERT into Purchase (custName, shipDate, orderedDate) VALUES ('Sarah
+		Smith', '2016-05-12', '2016-05-10');
+
+		Insert into PurchasedItem (purchaseID, itemNo, productName, orderedqty,
+		quotedPrice) VALUES (LAST_INSERT_ID(), 1, 'Cricket bat', 2, 80.50);
+
+	(LAST_INSERT_ID()      there in place of the question mark as then it will take the forward key of the last created purchaseID value (as it has been auto-incremented) in the same transaction and use it to make the id in the child table.)
+	
+	To delete or update something, first do so in child table, then do it in parent table or else foreign key constraint fails!
+	
+			SET AUTOCOMMIT = false;
+			delete 
+			From purchaseditem
+			where purchaseID = 115;
+			delete 
+			From purchase
+			where purchaseID = 115;
+			Commit;
+	
+			Update purchase
+			set shipDate='2019-10-10'
+			where purchaseID=111;
+
+			Update purchase
+			set shipDate='2020-10-10',orderedDate='2021-8-10'
+			where purchaseID=121;
+			COMMIT;
+
+	If you dont specific where for delete and set for update, it will affect all the records given in the table!
+	
+	(dont orphan the children!)
