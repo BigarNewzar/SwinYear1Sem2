@@ -1,0 +1,20 @@
+db.restaurant.find( { "grades.score": {$gt: 50} }, {_id:0, name:1, cuisine:1} ).pretty()
+
+db.restaurant.find( { "grades.score": {$gt: 50} }, {_id:0, name:1, cuisine:1} ).pretty().count()
+
+
+
+db.books.insertMany(
+[{"ISBN":"999-888","Book":"The secret river","Author":"Kate Grenville", "Review":[{"Reviewer": "Hua Tang","Score":"7"},{"Reviewer": "Jim Wong","Score":"8"},{"Reviewer": "Andrea Bauer","Score":"6"}]},
+
+{"ISBN":"777-222","Book":"Fooled by randomness","Author":"Nassim Taleb", "Review":[{"Reviewer": "Simon Jones","Score":"5"},{"Reviewer": "John Messum","Score":"10"}]}]
+)
+
+
+db.books.updateOne(
+   { ISBN:"999-888"},
+   {
+     $set: { Author:"Simon Collins"},
+     $currentDate: { lastModified: true }
+   }
+)
